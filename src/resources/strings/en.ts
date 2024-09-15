@@ -51,8 +51,9 @@ export const en: StringResources = {
     queue: {
       normalBlindPick: 'Normal - Blind Pick',
       normalDraftPick: 'Normal - Draft Pick',
-      rankedSolo: 'Soloqueue',
-      rankedFlex: 'Flex',
+      normalQuickPlay: 'Normal - Quickplay',
+      rankedSolo: 'Ranked - Solo/Duo',
+      rankedFlex: 'Ranked - Flex',
     },
     leagueTier: {
       IRON: 'Iron',

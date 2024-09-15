@@ -49,6 +49,7 @@ export interface StringResources {
     queue: {
       normalBlindPick: string
       normalDraftPick: string
+      normalQuickPlay: string
       rankedSolo: string
       rankedFlex: string
     }

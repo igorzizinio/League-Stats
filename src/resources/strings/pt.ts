@@ -52,8 +52,9 @@ export const pt: StringResources = {
     queue: {
       normalBlindPick: 'Normal - Escolha às cegas',
       normalDraftPick: 'Normal - Escolha alternada',
-      rankedSolo: 'Soloqueue',
-      rankedFlex: 'Flex',
+      normalQuickPlay: 'Normal - Jogo Rápido',
+      rankedSolo: 'Ranqueado - Solo/Duo',
+      rankedFlex: 'Ranqueado - Flex',
     },
     leagueTier: {
       IRON: 'Ferro',
