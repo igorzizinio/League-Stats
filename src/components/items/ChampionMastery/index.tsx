@@ -7,6 +7,7 @@ import { getLocales } from 'expo-localization'
 
 import { ChampionData } from '../../../@types/riot'
 import riot from '../../../services/riot'
+import Card from '../../ui/card'
 
 type Props = {
   mastery: ChampionMastery
@@ -33,7 +34,7 @@ const ChampionMasteryCard: React.FC<Props> = ({ mastery }) => {
   const masteryLevel = mastery.championLevel >= 10 ? 10 : mastery.championLevel
 
   return (
-    <View style={styles.container}>
+    <Card style={styles.container}>
       <View style={styles.basicInfo}>
         <Image
           style={styles.championIcon}
@@ -67,16 +68,13 @@ const ChampionMasteryCard: React.FC<Props> = ({ mastery }) => {
           }}
         />
       </View>
-    </View>
+    </Card>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    padding: 8,
-    borderRadius: 12,
     flexDirection: 'row',
-    backgroundColor: '#ffffff05',
     alignItems: 'center',
     justifyContent: 'space-between',
   },
