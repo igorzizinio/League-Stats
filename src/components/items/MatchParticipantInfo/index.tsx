@@ -8,7 +8,8 @@ import ParticipantItems from '../ParticipantItems'
 import colors from '../../../colors'
 import runes from '../../../runes.json'
 import riot from '../../../services/riot'
-import spells from '../../../spells2.json'
+import spells from '../../../spells.json'
+import cdragon from '../../../services/cdragon'
 
 type Props = {
   participant: MatchParticipant
@@ -44,8 +45,8 @@ const MatchParticipantInfo: React.FC<Props> = ({
   const a = participant.summoner1Id.toString() as keyof typeof spells
   const b = participant.summoner2Id.toString() as keyof typeof spells
 
-  const spell1 = spells[a]
-  const spell2 = spells[b]
+  const spell1 = spells.find((spell) => spell.id == a)
+  const spell2 = spells.find((spell) => spell.id == b)
 
   const csScore =
     participant.totalMinionsKilled + participant.neutralMinionsKilled
@@ -90,7 +91,9 @@ const MatchParticipantInfo: React.FC<Props> = ({
             <Image
               style={{ width: 16, height: 16, borderBottomLeftRadius: 12 }}
               source={{
-                uri: `https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/${runeIconPath}`,
+                uri: cdragon.getCDN(
+                  `plugins/rcp-be-lol-game-data/global/default/v1/${runeIconPath}`,
+                ),
               }}
             />
 
@@ -116,14 +119,18 @@ const MatchParticipantInfo: React.FC<Props> = ({
             <Image
               style={{ width: 16, height: 16 }}
               source={{
-                uri: `https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/data/${spell1?.iconPath.toLowerCase()}`,
+                uri: cdragon.getCDN(
+                  `plugins/rcp-be-lol-game-data/global/default/data/${spell1?.iconPath.toLowerCase()}`,
+                ),
               }}
             />
 
             <Image
               style={{ width: 16, height: 16, borderBottomRightRadius: 12 }}
               source={{
-                uri: `https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/data/${spell2?.iconPath.toLowerCase()}`,
+                uri: cdragon.getCDN(
+                  `plugins/rcp-be-lol-game-data/global/default/data/${spell2?.iconPath.toLowerCase()}`,
+                ),
               }}
             />
           </View>
