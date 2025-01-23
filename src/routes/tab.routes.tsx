@@ -1,15 +1,15 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import React from 'react'
-import History from '../screens/History'
-import Profile from '../screens/Profile'
-
 import { MaterialIcons } from '@expo/vector-icons'
 import { useTranslation } from 'react-i18next'
 import { Text, TouchableOpacity } from 'react-native'
 import colors from '../colors'
 import { useSummoner } from '../hooks/useSummoner'
-import Home from '../screens/Home'
 import themes from '../themes'
+import ProfileRoutes from './profile.routes'
+import HistoryRoutes from './history.routes'
+import HomeRoutes from './home.routes'
+import ChampionsRoutes from './champions.routes'
 
 const Tab = createBottomTabNavigator()
 
@@ -46,7 +46,7 @@ export default function TabRoutes() {
     >
       <Tab.Screen
         name='Home'
-        component={Home}
+        component={HomeRoutes}
         options={{
           title: t('screen.home.title'),
           tabBarIcon: ({ color, size }) => {
@@ -62,8 +62,25 @@ export default function TabRoutes() {
       />
 
       <Tab.Screen
+        name='Champions'
+        component={ChampionsRoutes}
+        options={{
+          title: t('screen.champions.title'),
+          tabBarIcon: ({ color, size }) => {
+            return (
+              <MaterialIcons
+                name='archive'
+                size={size}
+                color={color}
+              />
+            )
+          },
+        }}
+      />
+
+      <Tab.Screen
         name='History'
-        component={History}
+        component={HistoryRoutes}
         options={{
           title: t('screen.history.title'),
           tabBarIcon: ({ color, size }) => {
@@ -80,7 +97,7 @@ export default function TabRoutes() {
 
       <Tab.Screen
         name='Profile'
-        component={Profile}
+        component={ProfileRoutes}
         options={{
           title: t('screen.profile.title'),
           tabBarIcon: ({ color, size }) => {

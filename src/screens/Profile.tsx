@@ -1,42 +1,17 @@
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import React from 'react'
-import { ScrollView, StyleSheet, View } from 'react-native'
+import { ScrollView, StyleSheet } from 'react-native'
 import colors from '../colors'
 import LeaguesInfoCard from '../components/cards/LeagueInfosCard'
 import MasteriesCard from '../components/cards/MasteriesCard'
 import ProfileCard from '../components/cards/ProfileCard'
 import themes from '../themes'
-import BestChampions from './BestChampions'
 
 export type ProfileStackParamList = {
   profileDefault: undefined
   bestChampions: undefined
 }
 
-const Stack = createNativeStackNavigator()
-
-export default function ProfileRoutes() {
-  return (
-    <View style={{ flex: 1, backgroundColor: themes.dark.background }}>
-      <Stack.Navigator
-        initialRouteName='profileDefault'
-        screenOptions={{ headerShown: false }}
-      >
-        <Stack.Screen
-          name='profileDefault'
-          component={Profile}
-        />
-
-        <Stack.Screen
-          name='bestChampions'
-          component={BestChampions}
-        />
-      </Stack.Navigator>
-    </View>
-  )
-}
-
-function Profile() {
+export default function Profile() {
   return (
     <ScrollView
       style={styles.container}

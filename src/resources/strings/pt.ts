@@ -23,6 +23,9 @@ export const pt: StringResources = {
     home: {
       title: 'Início',
     },
+    champions: {
+      title: 'Campeões',
+    },
     history: {
       title: 'Histórico',
     },

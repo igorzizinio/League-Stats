@@ -22,6 +22,9 @@ export const en: StringResources = {
     home: {
       title: 'Home',
     },
+    champions: {
+      title: 'Champions',
+    },
     history: {
       title: 'History',
     },

@@ -8,6 +8,7 @@ import colors from '../../../colors'
 import { useSummoner } from '../../../hooks/useSummoner'
 import riot from '../../../services/riot'
 import Card from '../../ui/card'
+import Title from '../../ui/title'
 
 const FreeChampionsRotation: React.FC = () => {
   const { leagueRegion, summoner } = useSummoner()
@@ -31,7 +32,7 @@ const FreeChampionsRotation: React.FC = () => {
   return (
     <Card style={styles.container}>
       <View style={styles.cardHeader}>
-        <Text style={styles.title}>{t('league.championRotation')}</Text>
+        <Title>{t('league.championRotation')}</Title>
       </View>
 
       <View style={styles.flatlist}>
@@ -88,12 +89,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: 4,
-  },
-  title: {
-    color: colors.white,
-    alignSelf: 'flex-start',
-    fontSize: 22,
-    fontWeight: 'bold',
   },
   flatlist: {
     width: '100%',

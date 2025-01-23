@@ -20,6 +20,9 @@ export interface StringResources {
     home: {
       title: string
     }
+    champions: {
+      title: string
+    }
     history: {
       title: string
     }
