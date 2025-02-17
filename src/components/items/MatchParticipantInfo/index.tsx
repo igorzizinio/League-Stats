@@ -142,7 +142,11 @@ const MatchParticipantInfo: React.FC<Props> = ({
       </View>
 
       <View style={styles.basicPlayerInfo}>
-        <Text style={styles.name}>{account?.gameName}</Text>
+        <Text style={styles.name}>
+          {account?.gameName ??
+            participant.summonerName ??
+            participant.championName}
+        </Text>
 
         <SimpleKDA
           kills={participant.kills}

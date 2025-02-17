@@ -15,7 +15,7 @@ League Stats is a mobile application about League of Legends
 
 ```sh
 # Clone this repository
-$ git clone https://github.com/igorunderplayer/League-Stats.git
+$ git clone https://github.com/igorzizinio/League-Stats.git
 
 # Access the project directory
 $ cd League-Stats
