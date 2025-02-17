@@ -3,14 +3,14 @@ import { useNavigation } from '@react-navigation/native'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import colors from '../../../colors'
+import { StyleSheet, TouchableOpacity, View } from 'react-native'
 import ChampionMastery from '../../../entities/ChampionMastery'
 import { useSummoner } from '../../../hooks/useSummoner'
 import { ProfileStackParamList } from '../../../screens/Profile'
 import riot from '../../../services/riot'
 import ChampionMasteryCard from '../../items/ChampionMastery'
 import Card from '../../ui/card'
+import Title from '../../ui/title'
 
 type profileScreenProp = NativeStackNavigationProp<
   ProfileStackParamList,
@@ -45,7 +45,7 @@ const MasteriesCard: React.FC = () => {
         style={styles.cardHeader}
         onPress={() => navigation.navigate('bestChampions')}
       >
-        <Text style={styles.title}>{t('card.bestChampions.title')}</Text>
+        <Title>{t('card.bestChampions.title')}</Title>
 
         <MaterialIcons
           name='chevron-right'
@@ -85,12 +85,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 2,
     paddingVertical: 16,
     gap: 8,
-  },
-  title: {
-    color: colors.white,
-    alignSelf: 'flex-start',
-    fontSize: 22,
-    fontWeight: 'bold',
   },
 })
 

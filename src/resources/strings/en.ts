@@ -1,44 +1,47 @@
-import { StringResources } from '.';
+import { StringResources } from '.'
 
 export const en: StringResources = {
   common: {
     unknownSummoner: 'Unknown summoner',
     victory: 'Victory',
-    defeat: 'Defeat'
+    defeat: 'Defeat',
   },
   error: {
-    notFound: 'Not found'
+    notFound: 'Not found',
   },
   screen: {
     welcome: {
       welcome: 'Welcome',
       subText: 'Before start... please fill the fields below',
       input: {
-        riotID: 'Your RiotID'
+        riotID: 'Your RiotID',
       },
       recentSummoners: 'Recent summoners',
-      continue: 'Continue'
+      continue: 'Continue',
     },
     home: {
-      title: 'Home'
+      title: 'Home',
+    },
+    champions: {
+      title: 'Champions',
     },
     history: {
-      title: 'History'
+      title: 'History',
     },
     profile: {
-      title: 'Profile'
+      title: 'Profile',
     },
     bestChampions: {
-      title: 'All Champions'
-    }
+      title: 'All Champions',
+    },
   },
   card: {
     leagueInfo: {
-      title: 'Personal classification'
+      title: 'Personal classification',
     },
     bestChampions: {
-      title: 'Best champions'
-    }
+      title: 'Best champions',
+    },
   },
   league: {
     championRotation: 'Champion rotation',
@@ -48,11 +51,14 @@ export const en: StringResources = {
     magicDamage: 'magic damage',
     trueDamage: 'true damage',
     emotionalDamage: 'emotional damage',
+    killParticipation: 'kill participation',
     queue: {
-      normalBlindPick: 'Normal - Blind Pick',
-      normalDraftPick: 'Normal - Draft Pick',
-      rankedSolo: 'Soloqueue',
-      rankedFlex: 'Flex',
+      normalBlindPick: 'Normal (Blind Pick)',
+      normalDraftPick: 'Normal (Draft Pick)',
+      normalQuickPlay: 'Normal (Quickplay)',
+      normalSwiftPlay: 'Normal (Swiftplay)',
+      rankedSolo: 'Ranked (Solo/Duo)',
+      rankedFlex: 'Ranked (Flex)',
     },
     leagueTier: {
       IRON: 'Iron',
@@ -68,14 +74,14 @@ export const en: StringResources = {
     },
     gameModeName: {
       ARAM: 'ARAM',
-      CLASSIC: 'Summoner\'s Rift',
+      CLASSIC: "Summoner's Rift",
       URF: 'Ultra Rapid Fire',
-      CHERRY: 'Arena'
+      CHERRY: 'Arena',
     },
     queueType: {
       RANKED_SOLO_5x5: 'Ranked Solo',
-      RANKED_FLEX_SR: ' Ranked Flex',
-      CHERRY: 'Arena'
-    }
-  }
+      RANKED_FLEX_SR: 'Ranked Flex',
+      CHERRY: 'Arena',
+    },
+  },
 }

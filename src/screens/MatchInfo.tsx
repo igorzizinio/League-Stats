@@ -156,7 +156,7 @@ export default function MatchInfo() {
         match={match}
       />
 
-      <Card>
+      <Card style={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
         <Text style={styles.subText}>Match id: {match.metadata.matchId}</Text>
       </Card>
     </ScrollView>

@@ -7,6 +7,8 @@ import { getLocales } from 'expo-localization'
 
 import { ChampionData } from '../../../@types/riot'
 import riot from '../../../services/riot'
+import Card from '../../ui/card'
+import { Mastery } from '../../generic/Mastery'
 
 type Props = {
   mastery: ChampionMastery
@@ -30,10 +32,8 @@ const ChampionMasteryCard: React.FC<Props> = ({ mastery }) => {
     )
   }
 
-  const masteryLevel = mastery.championLevel >= 10 ? 10 : mastery.championLevel
-
   return (
-    <View style={styles.container}>
+    <Card style={styles.container}>
       <View style={styles.basicInfo}>
         <Image
           style={styles.championIcon}
@@ -56,29 +56,19 @@ const ChampionMasteryCard: React.FC<Props> = ({ mastery }) => {
         </View>
       </View>
 
-      <View style={styles.masteryPoints}>
-        <Image
-          style={{ width: 96, height: 96, margin: -8 }}
-          source={{
-            uri:
-              mastery.championLevel < 4
-                ? `https://raw.communitydragon.org/latest/game/assets/ux/mastery/legendarychampionmastery/masterycrest_level_0_art.png`
-                : `https://raw.communitydragon.org/latest/game/assets/ux/mastery/legendarychampionmastery/masterycrest_level_${masteryLevel}_art.png`,
-          }}
-        />
+      <View style={styles.mastery}>
+        <Mastery mastery={mastery} />
       </View>
-    </View>
+    </Card>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    padding: 8,
-    borderRadius: 12,
     flexDirection: 'row',
-    backgroundColor: '#ffffff05',
     alignItems: 'center',
     justifyContent: 'space-between',
+    padding: 0,
   },
   name: {
     paddingHorizontal: 12,
@@ -86,6 +76,7 @@ const styles = StyleSheet.create({
     color: colors.white,
     fontSize: 18,
     fontWeight: 'bold',
+    padding: 12,
   },
   subText: {
     color: '#ffffff60',
@@ -98,9 +89,11 @@ const styles = StyleSheet.create({
   },
   basicInfo: {
     flexDirection: 'row',
+    padding: 12,
   },
-  masteryPoints: {
-    alignItems: 'center',
+  mastery: {
+    height: 92,
+    width: 92,
   },
 })
 

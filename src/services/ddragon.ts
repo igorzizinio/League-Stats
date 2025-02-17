@@ -1,24 +1,21 @@
 import axios, { AxiosInstance } from 'axios'
 import { DDragonChampionsRaw } from '../@types/riot'
 
-
 interface CacheKey<T> {
   gotAt: number
   data?: T
 }
 
 interface DDragonCache {
- [key: string]: CacheKey<unknown>
+  [key: string]: CacheKey<unknown>
 }
 
 class DDragon {
-
   readonly #CURRENT_PATCH = '13.14.1'
 
   api: AxiosInstance
 
   #baseURL = 'https://ddragon.leagueoflegends.com'
-
 
   #cache: DDragonCache = {
     versions: {
@@ -28,7 +25,7 @@ class DDragon {
     champions: {
       gotAt: 0,
       data: undefined,
-    }
+    },
   }
 
   constructor() {
@@ -56,7 +53,10 @@ class DDragon {
     const versions = this.versions
 
     if (!versions)
-      return this.#baseURL + `/cdn/${this.#CURRENT_PATCH}/img/profileicon/${iconId}.png`
+      return (
+        this.#baseURL +
+        `/cdn/${this.#CURRENT_PATCH}/img/profileicon/${iconId}.png`
+      )
 
     return this.#baseURL + `/cdn/${versions[0]}/img/profileicon/${iconId}.png`
   }
@@ -65,10 +65,12 @@ class DDragon {
     const [version] = this.versions
 
     if (!version)
-      return this.#baseURL + `/cdn/${this.#CURRENT_PATCH}/img/champion/${championId}.png`
+      return (
+        this.#baseURL +
+        `/cdn/${this.#CURRENT_PATCH}/img/champion/${championId}.png`
+      )
 
     return this.#baseURL + `/cdn/${version}/img/champion/${championId}.png`
-
   }
 
   async getOrFetchVersions() {
@@ -108,8 +110,9 @@ class DDragon {
 
   async fetchChampions(locale: string = 'en_US'): Promise<DDragonChampionsRaw> {
     const [version] = this.versions
-    const res = await this.api.get(`/cdn/${version}/data/${locale}/champion.json`)
-
+    const res = await this.api.get(
+      `/cdn/${version}/data/${locale}/champion.json`,
+    )
 
     return res.data.data
   }

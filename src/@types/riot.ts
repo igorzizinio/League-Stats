@@ -1,9 +1,8 @@
-
 // Riot
 
 export interface Account {
-  puuid: string,
-  gameName: string,
+  puuid: string
+  gameName: string
   tagLine: string
 }
 
@@ -13,7 +12,7 @@ export const RiotRegions = {
   Europe: 'europe',
   PBE: 'pbe',
   Sea: 'sea',
-  Unknown: 'unknown'
+  Unknown: 'unknown',
 } as const
 
 export type RiotRegion = (typeof RiotRegions)[keyof typeof RiotRegions]
@@ -37,7 +36,6 @@ export interface ChampionData {
     sprite: string
   }
 }
-
 
 // League of Legends
 
@@ -64,9 +62,8 @@ export const LeagueRegions = {
 
   // Other
   PBE1: 'pbe1',
-  UNKNOWN: 'unknown'
+  UNKNOWN: 'unknown',
 } as const
-
 
 export type LeagueRegion = (typeof LeagueRegions)[keyof typeof LeagueRegions]
 
@@ -76,9 +73,19 @@ export function leagueFromString(string: string): LeagueRegion {
 
 export type TeamPosition = 'TOP' | 'JUNGLE' | 'MIDDLE' | 'BOTTOM' | 'UTILITY'
 
-export type LeagueTier = "IRON" | "BRONZE" | "SILVER" | "GOLD" | "PLATINUM" | "EMERALD" | "DIAMOND" | "MASTER" | "GRANDMASTER" | "CHALLENGER"
+export type LeagueTier =
+  | 'IRON'
+  | 'BRONZE'
+  | 'SILVER'
+  | 'GOLD'
+  | 'PLATINUM'
+  | 'EMERALD'
+  | 'DIAMOND'
+  | 'MASTER'
+  | 'GRANDMASTER'
+  | 'CHALLENGER'
 
-export type QueueType = "RANKED_SOLO_5x5" | "RANKED_FLEX_SR" | "CHERRY"
+export type QueueType = 'RANKED_SOLO_5x5' | 'RANKED_FLEX_SR' | 'CHERRY'
 
 export interface LeagueEntry {
   leagueId: string
@@ -104,7 +111,7 @@ export interface MiniSeries {
   wins: number
 }
 
-export type GameModes = "ARAM" | "CLASSIC" | "URF" | "CHERRY"
+export type GameModes = 'ARAM' | 'CLASSIC' | 'URF' | 'CHERRY'
 
 export interface Match {
   metadata: {
@@ -116,6 +123,7 @@ export interface Match {
     gameName: string
     gameType: string
     participants: MatchParticipant[]
+    gameCreation: number
     gameDuration: number
     teams: MatchTeam[]
     queueId: number
@@ -135,7 +143,7 @@ export interface MatchParticipant {
   champLevel: number
   role: string
   teamId: number
-  teamPosition: TeamPosition 
+  teamPosition: TeamPosition
 
   // kda
   assists: number
@@ -166,12 +174,11 @@ export interface MatchParticipant {
   goldEarned: number
   goldSpent: number
 
-
   // Damage statistics
   totalDamageDealt: number
   totalDamageDealtToChampions: number
 
-  physicalDamageDealt: number	
+  physicalDamageDealt: number
   physicalDamageDealtToChampions: number
 
   magicDamageDealt: number

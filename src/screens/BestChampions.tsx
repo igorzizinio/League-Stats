@@ -15,6 +15,7 @@ export default function BestChampions() {
 
   useEffect(() => {
     if (!leagueRegion || !summoner) return
+
     riot
       .getSummonerChampionsMasteries(summoner?.puuid, leagueRegion)
       .then((maestries) => {

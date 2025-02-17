@@ -1,55 +1,21 @@
 import { useNavigation } from '@react-navigation/native'
-import {
-  createNativeStackNavigator,
-  NativeStackNavigationProp,
-} from '@react-navigation/native-stack'
-import React, { useCallback, useEffect } from 'react'
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
+import React, { useCallback } from 'react'
 import { ActivityIndicator, FlatList, StyleSheet, View } from 'react-native'
 import { LeagueRegions, Match } from '../@types/riot'
-import colors from '../colors'
 import MatchInfoCard from '../components/items/MatchInfo'
 import riotRegionFromLeague from '../functions/riotRegionFromLeague'
 import { useSummoner } from '../hooks/useSummoner'
 import useSummonerMatches from '../hooks/useSummonerMatches'
 import themes from '../themes'
-import MatchInfo from './MatchInfo'
-
-export type HistoryStackParamList = {
-  historyDefault: undefined
-  matchInfo: {
-    matchId: string
-  }
-}
-
-const Stack = createNativeStackNavigator<HistoryStackParamList>()
+import { HistoryStackParamList } from '../routes/history.routes'
 
 type historyScreenProp = NativeStackNavigationProp<
   HistoryStackParamList,
   'historyDefault'
 >
 
-export default function HistoryRouter() {
-  return (
-    <View style={{ flex: 1, backgroundColor: themes.dark.background }}>
-      <Stack.Navigator
-        initialRouteName='historyDefault'
-        screenOptions={{ headerShown: false }}
-      >
-        <Stack.Screen
-          name='historyDefault'
-          component={History}
-        />
-
-        <Stack.Screen
-          name='matchInfo'
-          component={MatchInfo}
-        />
-      </Stack.Navigator>
-    </View>
-  )
-}
-
-function History() {
+export default function History() {
   const navigation = useNavigation<historyScreenProp>()
   const { summoner, leagueRegion } = useSummoner()
   const { matches, loading, loadMatches } = useSummonerMatches(
@@ -63,9 +29,9 @@ function History() {
     })
   }, [])
 
-  useEffect(() => {
-    loadMatches()
-  }, [])
+  const handleOnEndReached = async () => {
+    await loadMatches()
+  }
 
   return (
     <View style={styles.container}>
@@ -80,13 +46,13 @@ function History() {
             onClick={handleOnClickMatch}
           />
         )}
-        onEndReached={loadMatches}
+        onEndReached={handleOnEndReached}
         ListFooterComponent={
           <View style={{ height: 32 }}>
             {loading ? (
               <ActivityIndicator
                 size={32}
-                color={colors.softViolet}
+                color={themes.dark.primary}
               />
             ) : null}
           </View>

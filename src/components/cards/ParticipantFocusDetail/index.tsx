@@ -12,6 +12,7 @@ import SimpleKDA from '../../generic/SimpleKDA'
 import ParticipantItems from '../../items/ParticipantItems'
 import Card from '../../ui/card'
 import styles from './styles'
+import Title from '../../ui/title'
 
 type Props = {
   participant: MatchParticipant
@@ -49,7 +50,7 @@ const ParticipantFocusDetails: React.FC<Props> = ({ participant, match }) => {
         />
 
         <View>
-          <Text style={styles.title}>{participant.championName}</Text>
+          <Title>{participant.championName}</Title>
         </View>
 
         <View style={styles.column}>

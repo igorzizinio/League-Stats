@@ -116,14 +116,10 @@ const MatchInfoCard: React.FC<Props> = ({ match, onClick }) => {
         <Text
           style={[
             styles.subText,
-            { fontWeight: 'bold', maxWidth: 96, textAlign: 'center' },
+            { fontWeight: '500', maxWidth: 96, textAlign: 'center' },
           ]}
         >
           {queueName}
-        </Text>
-
-        <Text style={styles.subText}>
-          {(match.info.gameDuration / 60).toFixed()} min
         </Text>
       </View>
 
@@ -135,10 +131,15 @@ const MatchInfoCard: React.FC<Props> = ({ match, onClick }) => {
         />
 
         <Text style={styles.subText}>
-          {isNaN(combatScore) ? 0 : combatScore.toFixed(1)}% atuação em abates
+          {isNaN(combatScore) ? 0 : combatScore.toFixed(1)}%{' '}
+          {t('league.killParticipation')}
         </Text>
         <Text style={styles.subText}>
           {me.totalMinionsKilled + me.neutralMinionsKilled} CS
+        </Text>
+
+        <Text style={styles.subText}>
+          {(match.info.gameDuration / 60).toFixed()} min
         </Text>
       </View>
     </TouchableOpacity>
