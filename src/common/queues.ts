@@ -292,6 +292,13 @@ export default [
     notes: 'Deprecated in patch 9.23',
   },
   {
+    queueId: 480,
+    map: "Summoner's Rift",
+    description: 'Normal (Swift Play)',
+    key: 'normalSwiftPlay',
+    notes: null,
+  },
+  {
     queueId: 490,
     map: "Summoner's Rift",
     description: 'Normal (Quickplay)',

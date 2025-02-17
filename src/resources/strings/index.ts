@@ -49,10 +49,12 @@ export interface StringResources {
     magicDamage: string
     trueDamage: string
     emotionalDamage: string
+    killParticipation: string
     queue: {
       normalBlindPick: string
       normalDraftPick: string
       normalQuickPlay: string
+      normalSwiftPlay: string
       rankedSolo: string
       rankedFlex: string
     }
