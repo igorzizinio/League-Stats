@@ -9,7 +9,6 @@ import themes from '../themes'
 import ProfileRoutes from './profile.routes'
 import HistoryRoutes from './history.routes'
 import HomeRoutes from './home.routes'
-import ChampionsRoutes from './champions.routes'
 
 const Tab = createBottomTabNavigator()
 
@@ -53,23 +52,6 @@ export default function TabRoutes() {
             return (
               <MaterialIcons
                 name='home'
-                size={size}
-                color={color}
-              />
-            )
-          },
-        }}
-      />
-
-      <Tab.Screen
-        name='Champions'
-        component={ChampionsRoutes}
-        options={{
-          title: t('screen.champions.title'),
-          tabBarIcon: ({ color, size }) => {
-            return (
-              <MaterialIcons
-                name='archive'
                 size={size}
                 color={color}
               />

@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
-import React, { useCallback, useEffect } from 'react'
+import React, { useCallback } from 'react'
 import { ActivityIndicator, FlatList, StyleSheet, View } from 'react-native'
 import { LeagueRegions, Match } from '../@types/riot'
 import colors from '../colors'
@@ -30,9 +30,9 @@ export default function History() {
     })
   }, [])
 
-  useEffect(() => {
-    loadMatches()
-  }, [])
+  const handleOnEndReached = async () => {
+    await loadMatches()
+  }
 
   return (
     <View style={styles.container}>
@@ -47,7 +47,7 @@ export default function History() {
             onClick={handleOnClickMatch}
           />
         )}
-        onEndReached={loadMatches}
+        onEndReached={handleOnEndReached}
         ListFooterComponent={
           <View style={{ height: 32 }}>
             {loading ? (

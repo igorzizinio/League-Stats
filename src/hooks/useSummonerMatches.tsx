@@ -12,8 +12,8 @@ export default function useSummonerMatches(
   const [matches, setMatches] = useState<Match[]>([])
   const [loading, setLoading] = useState(false)
 
-  const loadMatches = async () => {
-    if (loading) return
+  const loadMatches = async (force: boolean = false) => {
+    if (loading && !force) return
 
     setLoading(true)
 
@@ -31,10 +31,11 @@ export default function useSummonerMatches(
         region,
       )
 
-      for await (const matchId of ids) {
-        const match = await riot.getMatchById(matchId, region)
-        setMatches((prev) => [...prev, match])
-      }
+      await Promise.all(
+        ids.map(async (id) => await riot.getMatchById(id, region)),
+      ).then((matches) => {
+        setMatches((prev) => [...prev, ...matches])
+      })
     } finally {
       setLoading(false)
     }
