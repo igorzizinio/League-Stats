@@ -3,7 +3,6 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import React, { useCallback } from 'react'
 import { ActivityIndicator, FlatList, StyleSheet, View } from 'react-native'
 import { LeagueRegions, Match } from '../@types/riot'
-import colors from '../colors'
 import MatchInfoCard from '../components/items/MatchInfo'
 import riotRegionFromLeague from '../functions/riotRegionFromLeague'
 import { useSummoner } from '../hooks/useSummoner'
@@ -53,7 +52,7 @@ export default function History() {
             {loading ? (
               <ActivityIndicator
                 size={32}
-                color={colors.softViolet}
+                color={themes.dark.primary}
               />
             ) : null}
           </View>
