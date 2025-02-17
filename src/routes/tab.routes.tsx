@@ -2,7 +2,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import React from 'react'
 import { MaterialIcons } from '@expo/vector-icons'
 import { useTranslation } from 'react-i18next'
-import { Text, TouchableOpacity } from 'react-native'
+import { TouchableOpacity } from 'react-native'
 import colors from '../colors'
 import { useSummoner } from '../hooks/useSummoner'
 import themes from '../themes'
@@ -36,9 +36,16 @@ export default function TabRoutes() {
           paddingBottom: 6,
         },
         tabBarActiveTintColor: themes.dark.primary,
-        headerRight: () => (
-          <TouchableOpacity onPress={exitSummoner}>
-            <Text style={{ color: '#fff' }}>Sair</Text>
+        headerRight: ({ tintColor }) => (
+          <TouchableOpacity
+            onPress={exitSummoner}
+            style={{ padding: 16 }}
+          >
+            <MaterialIcons
+              color={tintColor}
+              size={24}
+              name='logout'
+            />
           </TouchableOpacity>
         ),
       }}
