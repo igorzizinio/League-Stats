@@ -1,9 +1,12 @@
-import React, { createContext, useContext, useState, ReactNode } from 'react'
+import React, { createContext, useContext, ReactNode } from 'react'
 import colors from '../colors'
+import usePersistedState from './usePersistedState'
 
 interface PreferencesContextType {
   primaryColor: string
+  riotApiKey: string | undefined
   setPrimaryColor: (color: string) => void
+  setRiotApiKey: (apiKey: string | undefined) => void
 }
 
 const PreferencesContext = createContext<PreferencesContextType>(
@@ -13,10 +16,20 @@ const PreferencesContext = createContext<PreferencesContextType>(
 export const PreferencesProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const [primaryColor, setPrimaryColor] = useState(colors.softPurple)
+  const [primaryColor, setPrimaryColor] = usePersistedState(
+    'preferences.primaryColor',
+    colors.softPurple,
+  )
+
+  const [riotApiKey, setRiotApiKey] = usePersistedState<string | undefined>(
+    'preferences.riotApiKey',
+    undefined,
+  )
 
   return (
-    <PreferencesContext.Provider value={{ primaryColor, setPrimaryColor }}>
+    <PreferencesContext.Provider
+      value={{ primaryColor, riotApiKey, setPrimaryColor, setRiotApiKey }}
+    >
       {children}
     </PreferencesContext.Provider>
   )
