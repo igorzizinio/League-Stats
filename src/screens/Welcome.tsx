@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { leagueFromString } from '../@types/riot'
 import { SelectMenu } from '../components/generic/SelectMenu'
 import riotRegionFromLeague from '../functions/riotRegionFromLeague'
@@ -18,15 +19,30 @@ import themes from '../themes'
 
 import { useTranslation } from 'react-i18next'
 import getRiotIdFromString from '../functions/ritoIdFromString'
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
+import { WelcomeStackParamList } from '../routes/welcome.routes'
+import { useNavigation } from '@react-navigation/native'
+import { usePreferences } from '../hooks/usePreferences'
+
+type welcomeScreenProp = NativeStackNavigationProp<
+  WelcomeStackParamList,
+  'welcome'
+>
 
 export default function Welcome() {
+  const { primaryColor } = usePreferences()
+
   const { savedSummoners, resetSummoner, addSummoner, getSummoner } =
     useSummoner()
+
+  const navigation = useNavigation<welcomeScreenProp>()
 
   const [typingName, setTypingName] = useState('')
   const [typingRegion, setTypingRegion] = useState('BR1')
 
   const [loading, setLoading] = useState(false)
+
+  const [selectOpen, setSelectOpen] = useState(true)
 
   const { t } = useTranslation()
 
@@ -90,26 +106,36 @@ export default function Welcome() {
   }
 
   async function handleOnPressDelete() {
-    resetSummoner()
+    await resetSummoner()
     await AsyncStorage.clear()
+    alert(
+      '[Dev] All data deleted, you should completely exit and reopen the app now! :)',
+    )
   }
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
+      <View>
+        <TouchableOpacity onPress={() => navigation.navigate('settings')}>
+          <Text style={styles.text}>Config.</Text>
+        </TouchableOpacity>
+      </View>
       <View style={{ alignItems: 'center' }}>
         <Text style={styles.title}>{t('screen.welcome.welcome')}</Text>
-        <Text style={styles.text}>{t('screen.welcome.subText')}</Text>
+        <Text style={styles.subTitle}>{t('screen.welcome.subText')}</Text>
       </View>
 
       <View>
         <View style={styles.inputsContainer}>
           <TextInput
             value={typingRegion}
+            placeholder={t('screen.welcome.input.region')}
+            placeholderTextColor='#ffffff45'
             onChangeText={(text) => setTypingRegion(text)}
             style={[
               styles.textInput,
               {
-                width: '20%',
+                width: '30%',
                 borderRightWidth: 1,
                 borderColor: '#ffffff50',
               },
@@ -125,6 +151,8 @@ export default function Welcome() {
           />
         </View>
         <SelectMenu
+          open={selectOpen}
+          onPress={() => setSelectOpen((val) => !val)}
           text={t('screen.welcome.recentSummoners')}
           styles={{
             borderTopLeftRadius: 0,
@@ -143,19 +171,24 @@ export default function Welcome() {
         />
       </View>
 
-      <TouchableOpacity
-        onPress={handleOnSearchSummonerPress}
-        style={styles.button}
-      >
-        <Text style={styles.text}>{t('screen.welcome.continue')}</Text>
-      </TouchableOpacity>
+      <View>
+        <TouchableOpacity
+          onPress={handleOnSearchSummonerPress}
+          style={[styles.button, { backgroundColor: primaryColor }]}
+        >
+          <Text style={styles.text}>{t('screen.welcome.continue')}</Text>
+        </TouchableOpacity>
+      </View>
 
-      <TouchableOpacity
-        onPress={handleOnPressDelete}
-        style={styles.button}
-      >
-        <Text style={styles.text}>Delete data</Text>
-      </TouchableOpacity>
+      <View>
+        <TouchableOpacity onPress={handleOnPressDelete}>
+          <MaterialCommunityIcons
+            name='trash-can-outline'
+            color={themes.dark.text}
+            size={32}
+          />
+        </TouchableOpacity>
+      </View>
     </ScrollView>
   )
 }
@@ -173,12 +206,12 @@ const styles = StyleSheet.create({
     fontSize: 32,
   },
   subTitle: {
-    color: '#ffffff95',
+    color: '#ffffff60',
     fontWeight: 'bold',
-    fontSize: 26,
+    fontSize: 20,
   },
   text: {
-    color: '#ffffff60',
+    color: '#fff',
     fontWeight: 'bold',
     fontSize: 20,
   },
@@ -206,5 +239,8 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  primary: {
+    backgroundColor: themes.dark.primary,
   },
 })

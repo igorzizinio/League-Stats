@@ -1,5 +1,5 @@
 import { MaterialIcons } from '@expo/vector-icons'
-import React, { useState } from 'react'
+import React from 'react'
 import {
   StyleProp,
   Text,
@@ -18,17 +18,25 @@ interface Item {
 
 interface Props {
   text: string
+  open: boolean
   styles?: StyleProp<ViewStyle>
   items: Item[]
+  onPress: () => unknown
   onSelect: (item: Item) => unknown
 }
 
-const SelectMenu: React.FC<Props> = ({ text, items, onSelect, ...props }) => {
-  const [open, setOpen] = useState(false)
+const SelectMenu: React.FC<Props> = ({
+  text,
+  open,
+  items,
+  onPress,
+  onSelect,
+  ...props
+}) => {
   return (
     <TouchableOpacity
       style={[styles.container, props.styles]}
-      onPress={() => setOpen((val) => !val)}
+      onPress={onPress}
     >
       <View style={{ flexDirection: 'row' }}>
         <Text style={styles.text}>{text}</Text>

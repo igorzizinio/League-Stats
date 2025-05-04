@@ -15,6 +15,7 @@ export const en: StringResources = {
       subText: 'Before start... please fill the fields below',
       input: {
         riotID: 'Your RiotID',
+        region: 'Region',
       },
       recentSummoners: 'Recent summoners',
       continue: 'Continue',

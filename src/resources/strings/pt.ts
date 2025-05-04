@@ -16,6 +16,7 @@ export const pt: StringResources = {
         'Antes de começarmos... preencha os campos abaixo com as informações',
       input: {
         riotID: 'Seu RiotID',
+        region: 'Região',
       },
       recentSummoners: 'Invocadores recentes',
       continue: 'Continuar',

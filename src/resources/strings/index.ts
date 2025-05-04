@@ -13,6 +13,7 @@ export interface StringResources {
       subText: string
       input: {
         riotID: string
+        region: string
       }
       recentSummoners: string
       continue: string
