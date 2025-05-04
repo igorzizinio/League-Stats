@@ -167,4 +167,5 @@ export class Riot {
   }
 }
 
+// This is here because of older usages of Riot service.
 export default new Riot(process.env.EXPO_PUBLIC_RIOT_API_KEY)
