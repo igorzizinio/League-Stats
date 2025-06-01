@@ -96,8 +96,10 @@ export interface StringResources {
 
 export * from './en'
 export * from './pt'
+export * from './ja'
 
 export const languageNames = {
   pt: '🇧🇷 Português',
   en: '🇺🇸 English',
+  ja: '🇯🇵 日本語',
 }
