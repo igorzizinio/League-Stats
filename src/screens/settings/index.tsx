@@ -10,9 +10,11 @@ import i18n, { resources } from '../../i18n'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { languageNames } from '../../resources/strings'
 import themes from '../../themes'
+import { useTranslation } from 'react-i18next'
 
 export default function Settings() {
   const { primaryColor, setPrimaryColor, setRiotApiKey } = usePreferences()
+  const { t } = useTranslation()
 
   const [colorsOpen, setColorsOpen] = useState(false)
   const [languagesOpen, setLanguagesOpen] = useState(false)
@@ -64,9 +66,11 @@ export default function Settings() {
   return (
     <View style={styles.container}>
       <View style={styles.inputContainer}>
-        <Text style={styles.title}>⚠️ Custom Riot Api Key: </Text>
+        <Text style={styles.title}>
+          ⚠️ {t('screen.settings.customRiotApiKey')}:{' '}
+        </Text>
         <TextInput
-          placeholder='Your key here'
+          placeholder={t('screen.settings.customRiotApiKeyPlaceholder')}
           placeholderTextColor='#ffffff80'
           style={styles.input}
           onChangeText={(text) => setCustomRiotApiKey(text)}
@@ -98,7 +102,7 @@ export default function Settings() {
             ]}
             onPress={changeRiotApiKey}
           >
-            <Text style={styles.text}>Confirm</Text>
+            <Text style={styles.text}>{t('common.confirm')}</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -113,7 +117,7 @@ export default function Settings() {
             data: c.value,
             text: c.name,
           }))}
-          text='App Color'
+          text={t('screen.settings.appColor')}
         />
 
         <SelectMenu
@@ -125,7 +129,7 @@ export default function Settings() {
             data: lang.value,
             text: lang.name,
           }))}
-          text='Language'
+          text={t('screen.settings.language')}
         />
       </View>
 
@@ -147,7 +151,7 @@ export default function Settings() {
           size={32}
         />
 
-        <Text style={styles.text}>Delete All Data</Text>
+        <Text style={styles.text}>{t('screen.settings.deleteData')}</Text>
       </TouchableOpacity>
     </View>
   )

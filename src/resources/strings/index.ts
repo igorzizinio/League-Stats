@@ -3,6 +3,7 @@ export interface StringResources {
     unknownSummoner: string
     victory: string
     defeat: string
+    confirm: string
   }
   error: {
     notFound: string
@@ -17,6 +18,14 @@ export interface StringResources {
       }
       recentSummoners: string
       continue: string
+    }
+    settings: {
+      title: string
+      customRiotApiKey: string
+      customRiotApiKeyPlaceholder: string
+      deleteData: string
+      appColor: string
+      language: string
     }
     home: {
       title: string

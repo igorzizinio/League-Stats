@@ -4,6 +4,7 @@ import Welcome from '../screens/Welcome'
 import Settings from '../screens/settings'
 import colors from '../colors'
 import themes from '../themes'
+import { useTranslation } from 'react-i18next'
 //import SettingsScreen from '../screens/settings'
 
 export type WelcomeStackParamList = {
@@ -14,6 +15,7 @@ export type WelcomeStackParamList = {
 const Stack = createNativeStackNavigator<WelcomeStackParamList>()
 
 const WelcomeRoutes: React.FC = () => {
+  const { t } = useTranslation()
   return (
     <Stack.Navigator
       initialRouteName='welcome'
@@ -32,7 +34,7 @@ const WelcomeRoutes: React.FC = () => {
       <Stack.Screen
         name='settings'
         component={Settings}
-        options={{ title: 'Preferences' }}
+        options={{ title: t('screen.settings.title') }}
       />
     </Stack.Navigator>
   )

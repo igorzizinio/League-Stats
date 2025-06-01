@@ -5,6 +5,7 @@ export const pt: StringResources = {
     unknownSummoner: 'Invocador desconhecido',
     victory: 'Vitória',
     defeat: 'Derrota',
+    confirm: 'Confirmar',
   },
   error: {
     notFound: 'Não encontrado',
@@ -20,6 +21,15 @@ export const pt: StringResources = {
       },
       recentSummoners: 'Invocadores recentes',
       continue: 'Continuar',
+    },
+    settings: {
+      title: 'Configurações',
+      customRiotApiKey: 'Chave API personalizada Riot',
+      customRiotApiKeyPlaceholder:
+        'Insira sua chave de API personalizada da Riot aqui',
+      appColor: 'Cor do aplicativo',
+      deleteData: 'Excluir todos os dados',
+      language: 'Idioma',
     },
     home: {
       title: 'Início',
