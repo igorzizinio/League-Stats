@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, Image } from 'react-native'
+import { View, Image } from 'react-native'
 import ChampionMastery from '../../../entities/ChampionMastery'
 import styles from './styles'
 
@@ -14,21 +14,15 @@ const Mastery: React.FC<Props> = ({ mastery }) => {
     <View style={styles.container}>
       <Image
         style={styles.image}
-        width={76}
-        height={76}
+        width={96}
+        height={96}
         source={{
           uri:
             mastery.championLevel < 4
-              ? `https://raw.communitydragon.org/latest/game/assets/ux/mastery/legendarychampionmastery/masterycrest_level_0_art.png`
-              : `https://raw.communitydragon.org/latest/game/assets/ux/mastery/legendarychampionmastery/masterycrest_level_${masteryLevel}_art.png`,
+              ? `https://raw.communitydragon.org/latest/game/assets/ux/mastery/legendarychampionmastery/masterycrest_level0.cm_updates.png`
+              : `https://raw.communitydragon.org/latest/game/assets/ux/mastery/legendarychampionmastery/masterycrest_level${masteryLevel}.cm_updates.png`,
         }}
       />
-
-      {10 > mastery.championLevel ? null : (
-        <>
-          <Text style={styles.text}>{mastery.championLevel}</Text>
-        </>
-      )}
     </View>
   )
 }
