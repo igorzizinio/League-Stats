@@ -13,5 +13,14 @@ export const ja: StringResources = {
       language: '言語',
       deleteData: 'データを削除',
     },
+    home: {
+      title: 'ホムペ',
+    },
+    history: {
+      title: '歴史',
+    },
+    profile: {
+      title: 'プロフ',
+    },
   },
 }
