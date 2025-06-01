@@ -9,6 +9,7 @@ import { useSummoner } from '../hooks/useSummoner'
 import useSummonerMatches from '../hooks/useSummonerMatches'
 import themes from '../themes'
 import { HistoryStackParamList } from '../routes/history.routes'
+import { usePreferences } from '../hooks/usePreferences'
 
 type historyScreenProp = NativeStackNavigationProp<
   HistoryStackParamList,
@@ -22,6 +23,8 @@ export default function History() {
     summoner,
     riotRegionFromLeague(leagueRegion ?? LeagueRegions.BR1),
   )
+
+  const { primaryColor } = usePreferences()
 
   const handleOnClickMatch = useCallback((match: Match) => {
     navigation.navigate('matchInfo', {
@@ -52,7 +55,7 @@ export default function History() {
             {loading ? (
               <ActivityIndicator
                 size={32}
-                color={themes.dark.primary}
+                color={primaryColor}
               />
             ) : null}
           </View>

@@ -256,7 +256,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  primary: {
-    backgroundColor: themes.dark.primary,
-  },
 })
