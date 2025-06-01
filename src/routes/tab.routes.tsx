@@ -30,11 +30,8 @@ export default function TabRoutes() {
         },
         tabBarStyle: {
           backgroundColor: themes.dark.background,
-          height: 56,
         },
-        tabBarLabelStyle: {
-          paddingBottom: 6,
-        },
+
         tabBarActiveTintColor: themes.dark.primary,
         headerRight: ({ tintColor }) => (
           <TouchableOpacity

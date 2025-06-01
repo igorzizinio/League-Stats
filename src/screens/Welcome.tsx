@@ -1,4 +1,3 @@
-import AsyncStorage from '@react-native-async-storage/async-storage'
 import React, { useState } from 'react'
 import {
   ScrollView,
@@ -9,7 +8,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native'
-import { MaterialCommunityIcons } from '@expo/vector-icons'
+import { MaterialIcons } from '@expo/vector-icons'
 import { leagueFromString } from '../@types/riot'
 import { SelectMenu } from '../components/generic/SelectMenu'
 import riotRegionFromLeague from '../functions/riotRegionFromLeague'
@@ -32,8 +31,7 @@ type welcomeScreenProp = NativeStackNavigationProp<
 export default function Welcome() {
   const { primaryColor } = usePreferences()
 
-  const { savedSummoners, resetSummoner, addSummoner, getSummoner } =
-    useSummoner()
+  const { savedSummoners, addSummoner, getSummoner } = useSummoner()
 
   const navigation = useNavigation<welcomeScreenProp>()
 
@@ -105,91 +103,108 @@ export default function Welcome() {
     }
   }
 
-  async function handleOnPressDelete() {
-    await resetSummoner()
-    await AsyncStorage.clear()
-    alert(
-      '[Dev] All data deleted, you should completely exit and reopen the app now! :)',
-    )
-  }
-
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <View>
-        <TouchableOpacity onPress={() => navigation.navigate('settings')}>
-          <Text style={styles.text}>Config.</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={{ alignItems: 'center' }}>
-        <Text style={styles.title}>{t('screen.welcome.welcome')}</Text>
-        <Text style={styles.subTitle}>{t('screen.welcome.subText')}</Text>
-      </View>
+    <View
+      style={{
+        flex: 1,
+        backgroundColor: themes.dark.background,
+        paddingVertical: 32,
+      }}
+    >
+      <ScrollView contentContainerStyle={styles.container}>
+        <View
+          style={{
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <Text style={styles.title}>{t('screen.welcome.welcome')}</Text>
+          <Text style={styles.subTitle}>{t('screen.welcome.subText')}</Text>
+        </View>
 
-      <View>
-        <View style={styles.inputsContainer}>
-          <TextInput
-            value={typingRegion}
-            placeholder={t('screen.welcome.input.region')}
-            placeholderTextColor='#ffffff45'
-            onChangeText={(text) => setTypingRegion(text)}
-            style={[
-              styles.textInput,
-              {
-                width: '30%',
-                borderRightWidth: 1,
-                borderColor: '#ffffff50',
+        <View>
+          <View style={styles.inputsContainer}>
+            <TextInput
+              value={typingRegion}
+              placeholder={t('screen.welcome.input.region')}
+              placeholderTextColor='#ffffff45'
+              onChangeText={(text) => setTypingRegion(text)}
+              cursorColor={primaryColor}
+              selectionColor={primaryColor}
+              selectionHandleColor={primaryColor}
+              style={[
+                styles.textInput,
+                {
+                  width: '30%',
+                  borderRightWidth: 1,
+                  borderColor: '#ffffff50',
+                },
+              ]}
+            />
+
+            <TextInput
+              value={typingName}
+              placeholder={t('screen.welcome.input.riotID')}
+              placeholderTextColor='#ffffff45'
+              cursorColor={primaryColor}
+              selectionColor={primaryColor}
+              selectionHandleColor={primaryColor}
+              onChangeText={(text) => setTypingName(text)}
+              style={styles.textInput}
+            />
+          </View>
+          <SelectMenu
+            open={selectOpen}
+            onPress={() => setSelectOpen((val) => !val)}
+            text={t('screen.welcome.recentSummoners')}
+            styles={{
+              borderTopLeftRadius: 0,
+              borderTopRightRadius: 0,
+            }}
+            onSelect={(item) => handleSelectSummoner(item.data as SummonerInfo)}
+            items={savedSummoners.map((x) => ({
+              text: x.name ?? t('common.unknownSummoner'),
+              key: x.puuid,
+              data: {
+                name: x.name,
+                leagueRegion: x.leagueRegion,
+                puuid: x.puuid,
               },
-            ]}
-          />
-
-          <TextInput
-            value={typingName}
-            placeholder={t('screen.welcome.input.riotID')}
-            placeholderTextColor='#ffffff45'
-            onChangeText={(text) => setTypingName(text)}
-            style={styles.textInput}
+            }))}
           />
         </View>
-        <SelectMenu
-          open={selectOpen}
-          onPress={() => setSelectOpen((val) => !val)}
-          text={t('screen.welcome.recentSummoners')}
-          styles={{
-            borderTopLeftRadius: 0,
-            borderTopRightRadius: 0,
-          }}
-          onSelect={(item) => handleSelectSummoner(item.data as SummonerInfo)}
-          items={savedSummoners.map((x) => ({
-            text: x.name ?? t('common.unknownSummoner'),
-            key: x.puuid,
-            data: {
-              name: x.name,
-              leagueRegion: x.leagueRegion,
-              puuid: x.puuid,
-            },
-          }))}
+
+        <View>
+          <TouchableOpacity
+            onPress={handleOnSearchSummonerPress}
+            style={[styles.button, { backgroundColor: primaryColor }]}
+          >
+            <Text style={styles.text}>{t('screen.welcome.continue')}</Text>
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
+
+      <TouchableOpacity
+        style={{
+          alignSelf: 'flex-end',
+          padding: 12,
+          backgroundColor: primaryColor,
+          borderRadius: 12,
+          margin: 16,
+          flexDirection: 'row',
+          gap: 8,
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+        onPress={() => navigation.navigate('settings')}
+      >
+        <MaterialIcons
+          name='settings'
+          size={32}
+          color={'#fff'}
         />
-      </View>
-
-      <View>
-        <TouchableOpacity
-          onPress={handleOnSearchSummonerPress}
-          style={[styles.button, { backgroundColor: primaryColor }]}
-        >
-          <Text style={styles.text}>{t('screen.welcome.continue')}</Text>
-        </TouchableOpacity>
-      </View>
-
-      <View>
-        <TouchableOpacity onPress={handleOnPressDelete}>
-          <MaterialCommunityIcons
-            name='trash-can-outline'
-            color={themes.dark.text}
-            size={32}
-          />
-        </TouchableOpacity>
-      </View>
-    </ScrollView>
+      </TouchableOpacity>
+    </View>
   )
 }
 
@@ -208,6 +223,7 @@ const styles = StyleSheet.create({
   subTitle: {
     color: '#ffffff60',
     fontWeight: 'bold',
+    textAlign: 'center',
     fontSize: 20,
   },
   text: {
@@ -227,7 +243,7 @@ const styles = StyleSheet.create({
     width: '75%',
   },
   textInput: {
-    color: '#ffffff70',
+    color: '#ffffff90',
     padding: 12,
     fontSize: 18,
     width: '75%',

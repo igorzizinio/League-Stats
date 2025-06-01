@@ -7,9 +7,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: themes.dark.background,
     alignItems: 'flex-start',
-    justifyContent: 'center',
+
     padding: 16,
-    gap: 16,
+    gap: 32,
   },
   inputContainer: {
     flexDirection: 'column',
