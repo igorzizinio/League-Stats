@@ -1,13 +1,14 @@
 import React from 'react'
 import { Image, StyleSheet, View } from 'react-native'
 import colors from '../../../colors'
-import riot from '../../../services/riot'
+import { useRiot } from '../../../hooks/useRiot'
 
 type Props = {
   items: { item: number; slot: number }[]
 }
 
 const ParticipantItems: React.FC<Props> = ({ items }) => {
+  const { riot } = useRiot()
   return (
     <View style={styles.container}>
       {items.map((item) => (

@@ -3,8 +3,9 @@ import React, { ReactNode, createContext, useContext, useState } from 'react'
 import { Account, LeagueRegion } from '../@types/riot'
 import Summoner from '../entities/Summoner'
 import riotRegionFromLeague from '../functions/riotRegionFromLeague'
-import riot from '../services/riot'
+
 import usePersistedState from './usePersistedState'
+import { useRiot } from './useRiot'
 
 export type SummonerInfo = {
   puuid: string
@@ -36,6 +37,7 @@ type SummonerProviderProps = {
 export const SummonerContext = createContext({} as SummonerContextData)
 
 function SummonerProvider({ children }: SummonerProviderProps) {
+  const { riot } = useRiot()
   const [summoner, setSummoner] = useState<Summoner>()
   const [riotAccount, setRiotAccount] = useState<Account>()
 

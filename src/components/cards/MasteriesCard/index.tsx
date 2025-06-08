@@ -7,10 +7,10 @@ import { StyleSheet, TouchableOpacity, View } from 'react-native'
 import ChampionMastery from '../../../entities/ChampionMastery'
 import { useSummoner } from '../../../hooks/useSummoner'
 import { ProfileStackParamList } from '../../../screens/Profile'
-import riot from '../../../services/riot'
 import ChampionMasteryCard from '../../items/ChampionMastery'
 import Card from '../../ui/card'
 import Title from '../../ui/title'
+import { useRiot } from '../../../hooks/useRiot'
 
 type profileScreenProp = NativeStackNavigationProp<
   ProfileStackParamList,
@@ -19,9 +19,11 @@ type profileScreenProp = NativeStackNavigationProp<
 
 const MasteriesCard: React.FC = () => {
   const navigation = useNavigation<profileScreenProp>()
+
+  const { riot } = useRiot()
   const { leagueRegion, summoner } = useSummoner()
 
-  const [maestries, setMaestries] = useState<ChampionMastery[]>([])
+  const [masteries, setMasteries] = useState<ChampionMastery[]>([])
 
   const { t } = useTranslation()
 
@@ -29,10 +31,10 @@ const MasteriesCard: React.FC = () => {
     if (!leagueRegion || !summoner) return
     riot
       .getSummonerChampionsMasteries(summoner?.puuid, leagueRegion)
-      .then((maestries) => {
-        if (!maestries) return
-        setMaestries(
-          maestries
+      .then((masteries) => {
+        if (!masteries) return
+        setMasteries(
+          masteries
             .sort((x, y) => y.championLevel - x.championLevel)
             ?.slice(0, 5),
         )
@@ -55,7 +57,7 @@ const MasteriesCard: React.FC = () => {
       </TouchableOpacity>
 
       <View style={styles.maestries}>
-        {maestries.map((mastery) => (
+        {masteries.map((mastery) => (
           <ChampionMasteryCard
             key={mastery.championId}
             mastery={mastery}

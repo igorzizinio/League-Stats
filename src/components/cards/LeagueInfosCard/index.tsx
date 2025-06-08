@@ -3,12 +3,13 @@ import { useTranslation } from 'react-i18next'
 import { StyleSheet } from 'react-native'
 import { LeagueEntry } from '../../../@types/riot'
 import { useSummoner } from '../../../hooks/useSummoner'
-import riot from '../../../services/riot'
 import LeagueInfo from '../../items/LeagueInfo'
 import Card from '../../ui/card'
 import Title from '../../ui/title'
+import { useRiot } from '../../../hooks/useRiot'
 
 const LeagueInfosCard: React.FC = () => {
+  const { riot } = useRiot()
   const { leagueRegion, summoner } = useSummoner()
   const { t } = useTranslation()
 

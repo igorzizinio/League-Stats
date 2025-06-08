@@ -136,6 +136,10 @@ export interface MatchTeam {
 }
 
 export interface MatchParticipant {
+  // riot id
+  riotIdGameName: string
+  riotIdTagline: string
+
   // basic
   puuid: string
   summonerName: string

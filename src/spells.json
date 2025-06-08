@@ -2,116 +2,116 @@
   {
     "id": 1,
     "name": "Cleanse",
-    "iconPath": "/Spells/Icons2D/Summoner_boost.png"
+    "iconPath": "Spells/Icons2D/Summoner_boost.png"
   },
   {
     "id": 3,
     "name": "Exhaust",
-    "iconPath": "/Spells/Icons2D/Summoner_exhaust.png"
+    "iconPath": "Spells/Icons2D/Summoner_exhaust.png"
   },
   {
     "id": 4,
     "name": "Flash",
-    "iconPath": "/Spells/Icons2D/Summoner_flash.png"
+    "iconPath": "Spells/Icons2D/Summoner_flash.png"
   },
   {
     "id": 5,
     "name": "",
-    "iconPath": "/Spells/Icons2D/Summoner_Backtrack.png"
+    "iconPath": "Spells/Icons2D/Summoner_Backtrack.png"
   },
   {
     "id": 6,
     "name": "Ghost",
-    "iconPath": "/Spells/Icons2D/Summoner_haste.png"
+    "iconPath": "Spells/Icons2D/Summoner_haste.png"
   },
   {
     "id": 7,
     "name": "Heal",
-    "iconPath": "/Spells/Icons2D/Summoner_heal.png"
+    "iconPath": "Spells/Icons2D/Summoner_heal.png"
   },
   {
     "id": 11,
     "name": "Smite",
-    "iconPath": "/Spells/Icons2D/Summoner_smite.png"
+    "iconPath": "Spells/Icons2D/Summoner_smite.png"
   },
   {
     "id": 12,
     "name": "Teleport",
-    "iconPath": "/Spells/Icons2D/Summoner_teleport.png"
+    "iconPath": "Spells/Icons2D/Summoner_Teleport_New.png"
   },
   {
     "id": 13,
     "name": "Clarity",
-    "iconPath": "/Spells/Icons2D/SummonerMana.png"
+    "iconPath": "Spells/Icons2D/SummonerMana.png"
   },
   {
     "id": 14,
     "name": "Ignite",
-    "iconPath": "/Spells/Icons2D/SummonerIgnite.png"
+    "iconPath": "Spells/Icons2D/SummonerIgnite.png"
   },
   {
     "id": 21,
     "name": "Barrier",
-    "iconPath": "/Spells/Icons2D/SummonerBarrier.png"
+    "iconPath": "Spells/Icons2D/SummonerBarrier.png"
   },
   {
     "id": 30,
     "name": "To the King!",
-    "iconPath": "/Spells/Icons2D/Benevolence_Of_King_Poro_Icon.png"
+    "iconPath": "Spells/Icons2D/Benevolence_Of_King_Poro_Icon.png"
   },
   {
     "id": 31,
     "name": "Poro Toss",
-    "iconPath": "/Spells/Icons2D/Trailblazer_Poro_Icon.png"
+    "iconPath": "Spells/Icons2D/Trailblazer_Poro_Icon.png"
   },
   {
     "id": 32,
     "name": "Mark",
-    "iconPath": "/Spells/Icons2D/Summoner_Mark.png"
+    "iconPath": "Spells/Icons2D/Summoner_Mark.png"
   },
   {
     "id": 39,
     "name": "Mark",
-    "iconPath": "/Spells/Icons2D/Summoner_Mark.png"
-  },
-  {
-    "id": 50,
-    "name": "",
-    "iconPath": "/Spells/Icons2D/SummonerTemp2.png"
-  },
-  {
-    "id": 51,
-    "name": "",
-    "iconPath": "/Spells/Icons2D/Summoner_haste.png"
-  },
-  {
-    "id": 52,
-    "name": "",
-    "iconPath": "/Spells/Icons2D/SummonerTemp1.png"
+    "iconPath": "Spells/Icons2D/Summoner_Mark.png"
   },
   {
     "id": 54,
     "name": "Placeholder",
-    "iconPath": "/Spells/Icons2D/Summoner_Empty.png"
+    "iconPath": "Spells/Icons2D/Summoner_Empty.png"
   },
   {
     "id": 55,
     "name": "Placeholder and Attack-Smite",
-    "iconPath": "/Spells/Icons2D/Summoner_EmptySmite.png"
+    "iconPath": "Spells/Icons2D/Summoner_EmptySmite.png"
+  },
+  {
+    "id": 2201,
+    "name": "Flee",
+    "iconPath": "Spells/Icons2D/Icon_SummonerSpell_Flee.2v2_Mode_Fighters.png"
+  },
+  {
+    "id": 2202,
+    "name": "Flash",
+    "iconPath": "Spells/Icons2D/Summoner_flash.png"
+  },
+  {
+    "id": 2203,
+    "name": "Flash",
+    "iconPath": "Spells/Icons2D/Summoner_flash.png"
   },
   {
     "id": 4294967295,
     "name": "Primal Smite",
-    "iconPath": "/Spells/Icons2D/1102_Smite.png"
+    "iconPath": "Spells/Icons2D/1103_Smite.png"
   },
   {
     "id": 4294967295,
     "name": "Primal Smite",
-    "iconPath": "/Spells/Icons2D/1103_Smite.png"
+    "iconPath": "Spells/Icons2D/1101_Smite.png"
   },
   {
     "id": 4294967295,
     "name": "Primal Smite",
-    "iconPath": "/Spells/Icons2D/1101_Smite.png"
+    "iconPath": "Spells/Icons2D/1102_Smite.png"
   }
 ]

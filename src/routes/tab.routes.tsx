@@ -9,10 +9,12 @@ import themes from '../themes'
 import ProfileRoutes from './profile.routes'
 import HistoryRoutes from './history.routes'
 import HomeRoutes from './home.routes'
+import { usePreferences } from '../hooks/usePreferences'
 
 const Tab = createBottomTabNavigator()
 
 export default function TabRoutes() {
+  const { primaryColor } = usePreferences()
   const { resetSummoner } = useSummoner()
 
   const { t } = useTranslation()
@@ -30,12 +32,9 @@ export default function TabRoutes() {
         },
         tabBarStyle: {
           backgroundColor: themes.dark.background,
-          height: 56,
         },
-        tabBarLabelStyle: {
-          paddingBottom: 6,
-        },
-        tabBarActiveTintColor: themes.dark.primary,
+
+        tabBarActiveTintColor: primaryColor,
         headerRight: ({ tintColor }) => (
           <TouchableOpacity
             onPress={exitSummoner}

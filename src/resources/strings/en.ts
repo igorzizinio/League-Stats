@@ -5,6 +5,7 @@ export const en: StringResources = {
     unknownSummoner: 'Unknown summoner',
     victory: 'Victory',
     defeat: 'Defeat',
+    confirm: 'Confirm',
   },
   error: {
     notFound: 'Not found',
@@ -15,9 +16,18 @@ export const en: StringResources = {
       subText: 'Before start... please fill the fields below',
       input: {
         riotID: 'Your RiotID',
+        region: 'Region',
       },
       recentSummoners: 'Recent summoners',
       continue: 'Continue',
+    },
+    settings: {
+      title: 'Settings',
+      customRiotApiKey: 'Custom Riot Api Key',
+      customRiotApiKeyPlaceholder: 'Enter your custom Riot Api Key here',
+      appColor: 'App color',
+      language: 'Language',
+      deleteData: 'Delete all data',
     },
     home: {
       title: 'Home',

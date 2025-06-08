@@ -1,19 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import { Account, MatchParticipant, RiotRegion } from '../../../@types/riot'
+import { MatchParticipant } from '../../../@types/riot'
 
 import SimpleKDA from '../../generic/SimpleKDA'
 import ParticipantItems from '../ParticipantItems'
 
 import colors from '../../../colors'
 import runes from '../../../runes.json'
-import riot from '../../../services/riot'
 import spells from '../../../spells.json'
 import cdragon from '../../../services/cdragon'
+import { useRiot } from '../../../hooks/useRiot'
 
 type Props = {
   participant: MatchParticipant
-  region: RiotRegion
   focused: boolean
   onClick: () => unknown
 }
@@ -26,17 +25,10 @@ const formatter = new Intl.NumberFormat('en-US', { notation: 'compact' })
 
 const MatchParticipantInfo: React.FC<Props> = ({
   participant,
-  region,
   onClick,
   focused = false,
 }) => {
-  const [account, setAccount] = useState<Account>()
-
-  useEffect(() => {
-    riot.getAccountByPuuid(participant.puuid, region).then((acc) => {
-      setAccount(acc)
-    })
-  }, [participant, region])
+  const { riot } = useRiot()
 
   const primaryMainRune = participant.perks.styles[0].selections[0].perk
   const runeIconPath =
@@ -142,11 +134,7 @@ const MatchParticipantInfo: React.FC<Props> = ({
       </View>
 
       <View style={styles.basicPlayerInfo}>
-        <Text style={styles.name}>
-          {account?.gameName ??
-            participant.summonerName ??
-            participant.championName}
-        </Text>
+        <Text style={styles.name}>{participant.riotIdGameName}</Text>
 
         <SimpleKDA
           kills={participant.kills}

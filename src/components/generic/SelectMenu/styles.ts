@@ -15,9 +15,8 @@ const styles = StyleSheet.create({
   },
   subText: {
     color: '#ffffff60',
-    padding: 4
-  }
+    padding: 4,
+  },
 })
 
 export { styles }
-

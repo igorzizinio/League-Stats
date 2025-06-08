@@ -3,6 +3,7 @@ export interface StringResources {
     unknownSummoner: string
     victory: string
     defeat: string
+    confirm: string
   }
   error: {
     notFound: string
@@ -13,9 +14,18 @@ export interface StringResources {
       subText: string
       input: {
         riotID: string
+        region: string
       }
       recentSummoners: string
       continue: string
+    }
+    settings: {
+      title: string
+      customRiotApiKey: string
+      customRiotApiKeyPlaceholder: string
+      deleteData: string
+      appColor: string
+      language: string
     }
     home: {
       title: string
@@ -86,3 +96,8 @@ export interface StringResources {
 
 export * from './en'
 export * from './pt'
+
+export const languageNames = {
+  pt: '🇧🇷 Português',
+  en: '🇺🇸 English',
+}
