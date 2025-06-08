@@ -7,12 +7,12 @@ import {
   MatchParticipant,
 } from '../../../@types/riot'
 import colors from '../../../colors'
-import riot from '../../../services/riot'
 import SimpleKDA from '../../generic/SimpleKDA'
 import ParticipantItems from '../../items/ParticipantItems'
 import Card from '../../ui/card'
 import styles from './styles'
 import Title from '../../ui/title'
+import { useRiot } from '../../../hooks/useRiot'
 
 type Props = {
   participant: MatchParticipant
@@ -23,6 +23,7 @@ const ParticipantFocusDetails: React.FC<Props> = ({ participant, match }) => {
   const [championsData, setChampionsData] = useState<DDragonChampionsRaw>({})
   const champion = championsData[participant.championName] ?? {}
 
+  const { riot } = useRiot()
   const { t } = useTranslation()
 
   useEffect(() => {
@@ -49,7 +50,7 @@ const ParticipantFocusDetails: React.FC<Props> = ({ participant, match }) => {
           }}
         />
 
-        <View>
+        <View style={styles.column}>
           <Title>{participant.championName}</Title>
         </View>
 

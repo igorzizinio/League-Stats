@@ -1,5 +1,6 @@
 import React, { memo, useCallback } from 'react'
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { formatDistanceToNow } from 'date-fns'
 import { Match } from '../../../@types/riot'
 import colors from '../../../colors'
 import { useSummoner } from '../../../hooks/useSummoner'
@@ -10,9 +11,11 @@ import SimpleKDA from '../../generic/SimpleKDA'
 import { useTranslation } from 'react-i18next'
 import queues from '../../../common/queues'
 import runes from '../../../runes.json'
-import riot from '../../../services/riot'
 import spells from '../../../spells.json'
 import VictoryDefeatIcon from '../../generic/VictoryDefeatIcon'
+import { useRiot } from '../../../hooks/useRiot'
+import { getLocales } from 'expo-localization'
+import { expoToDateFnsLocale } from '../../../functions/expoToDateFnsLocale'
 
 type Props = {
   match: Match
@@ -21,6 +24,7 @@ type Props = {
 }
 
 const MatchInfoCard: React.FC<Props> = ({ match, onClick }) => {
+  const { riot } = useRiot()
   const { summoner } = useSummoner()
 
   const { t } = useTranslation()
@@ -47,14 +51,16 @@ const MatchInfoCard: React.FC<Props> = ({ match, onClick }) => {
     onClick(match)
   }, [])
 
-  console.log(match.info.queueId)
   const queue = queues.find((q) => q.queueId == match.info.queueId)?.key
-
-  console.log(queue)
 
   const queueName = t(`league.queue.${queue}`, {
     defaultValue: match.info.gameMode,
   }) as string
+
+  const timeAgo = formatDistanceToNow(new Date(match.info.gameCreation), {
+    addSuffix: true,
+    locale: expoToDateFnsLocale(getLocales()[0].languageTag),
+  })
 
   return (
     <TouchableOpacity
@@ -139,7 +145,7 @@ const MatchInfoCard: React.FC<Props> = ({ match, onClick }) => {
         </Text>
 
         <Text style={styles.subText}>
-          {(match.info.gameDuration / 60).toFixed()} min
+          {(match.info.gameDuration / 60).toFixed()} min • {timeAgo}
         </Text>
       </View>
     </TouchableOpacity>

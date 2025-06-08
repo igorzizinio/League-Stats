@@ -6,15 +6,16 @@ import ChampionMastery from '../../../entities/ChampionMastery'
 import { getLocales } from 'expo-localization'
 
 import { ChampionData } from '../../../@types/riot'
-import riot from '../../../services/riot'
 import Card from '../../ui/card'
 import { Mastery } from '../../generic/Mastery'
+import { useRiot } from '../../../hooks/useRiot'
 
 type Props = {
   mastery: ChampionMastery
 }
 
 const ChampionMasteryCard: React.FC<Props> = ({ mastery }) => {
+  const { riot } = useRiot()
   const [champion, setChampion] = useState<ChampionData>({} as ChampionData)
   const [locale] = getLocales()
 

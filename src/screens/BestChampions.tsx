@@ -5,12 +5,15 @@ import colors from '../colors'
 import ChampionMasteryCard from '../components/items/ChampionMastery'
 import ChampionMastery from '../entities/ChampionMastery'
 import { useSummoner } from '../hooks/useSummoner'
-import riot from '../services/riot'
 import themes from '../themes'
+import { useRiot } from '../hooks/useRiot'
 
 export default function BestChampions() {
   const { t } = useTranslation()
+
+  const { riot } = useRiot()
   const { summoner, leagueRegion } = useSummoner()
+
   const [maestries, setMaestries] = useState<ChampionMastery[]>([])
 
   useEffect(() => {

@@ -37,7 +37,7 @@ type SummonerProviderProps = {
 export const SummonerContext = createContext({} as SummonerContextData)
 
 function SummonerProvider({ children }: SummonerProviderProps) {
-  const riot = useRiot()
+  const { riot } = useRiot()
   const [summoner, setSummoner] = useState<Summoner>()
   const [riotAccount, setRiotAccount] = useState<Account>()
 

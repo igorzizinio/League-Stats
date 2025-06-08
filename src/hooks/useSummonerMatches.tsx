@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Match, RiotRegion } from '../@types/riot'
 import Summoner from '../entities/Summoner'
-import riot from '../services/riot'
+import { useRiot } from './useRiot'
 
 export const MATCH_LOAD_COUNT = 10
 
@@ -9,6 +9,7 @@ export default function useSummonerMatches(
   summoner?: Summoner,
   region?: RiotRegion,
 ) {
+  const { riot } = useRiot()
   const [matches, setMatches] = useState<Match[]>([])
   const [loading, setLoading] = useState(false)
 

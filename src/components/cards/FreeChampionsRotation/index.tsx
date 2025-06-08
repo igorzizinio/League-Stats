@@ -6,13 +6,15 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { ChampionData } from '../../../@types/riot'
 import colors from '../../../colors'
 import { useSummoner } from '../../../hooks/useSummoner'
-import riot from '../../../services/riot'
 import Card from '../../ui/card'
 import Title from '../../ui/title'
+import { useRiot } from '../../../hooks/useRiot'
 
 const FreeChampionsRotation: React.FC = () => {
   const { leagueRegion, summoner } = useSummoner()
   const [champions, setChampions] = useState<ChampionData[]>([])
+
+  const { riot } = useRiot()
 
   const { t } = useTranslation()
 
@@ -53,6 +55,8 @@ type ItemProps = {
 
 const ChampionItem = ({ item }: ItemProps) => {
   const [locale] = getLocales()
+
+  const { riot } = useRiot()
 
   const local = locale.languageTag.toLowerCase()
 

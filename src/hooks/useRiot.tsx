@@ -16,7 +16,7 @@ const useRiot = () => {
     [riotApiKey],
   )
 
-  return riot
+  return { riot }
 }
 
 export { useRiot }

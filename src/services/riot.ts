@@ -11,14 +11,6 @@ import ChampionMastery from '../entities/ChampionMastery'
 import Summoner from '../entities/Summoner'
 import ddragonApi from './ddragon'
 
-// TODO: Move process typing
-
-declare const process: {
-  env: {
-    [key: string]: string
-  }
-}
-
 interface GetMatchesOptions {
   startTime?: number
   endTime?: number
@@ -166,6 +158,3 @@ export class Riot {
     return res
   }
 }
-
-// This is here because of older usages of Riot service.
-export default new Riot(process.env.EXPO_PUBLIC_RIOT_API_KEY)

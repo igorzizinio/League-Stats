@@ -9,18 +9,24 @@ import MatchParticipantInfo from '../components/items/MatchParticipantInfo'
 import Card from '../components/ui/card'
 import riotRegionFromLeague from '../functions/riotRegionFromLeague'
 import { useSummoner } from '../hooks/useSummoner'
-import riot from '../services/riot'
 import themes from '../themes'
-import { HistoryStackParamList } from './History'
+import { useRiot } from '../hooks/useRiot'
+import { HistoryStackParamList } from '../routes/history.routes'
+import { expoToDateFnsLocale } from '../functions/expoToDateFnsLocale'
+import { getLocales } from 'expo-localization'
+import { format } from 'date-fns'
 
 type matchInfoScreenProp = RouteProp<HistoryStackParamList, 'matchInfo'>
 
 export default function MatchInfo() {
   const route = useRoute<matchInfoScreenProp>()
+
+  const { riot } = useRiot()
   const { summoner, leagueRegion } = useSummoner()
+
   const [match, setMatch] = useState<Match>()
   const [focusedParticipantPuuid, setFocusedParticipantPuuid] =
-    useState<string>('')
+    useState<string>(summoner?.puuid ?? '')
 
   const { t } = useTranslation()
 
@@ -30,7 +36,6 @@ export default function MatchInfo() {
       .getMatchById(route.params?.matchId, riotRegionFromLeague(leagueRegion))
       .then((match) => {
         setMatch(match)
-        setFocusedParticipantPuuid(match.info.participants[0].puuid)
       })
   }, [])
 
@@ -73,6 +78,12 @@ export default function MatchInfo() {
         ),
     [match],
   )
+
+  const matchDate = new Date(match?.info?.gameCreation ?? 0)
+
+  const locale = expoToDateFnsLocale(getLocales()[0].languageTag)
+
+  const matchDateTime = format(matchDate, 'Pp', { locale })
 
   if (!match) return <View style={styles.container}></View>
 
@@ -129,7 +140,6 @@ export default function MatchInfo() {
               <MatchParticipantInfo
                 key={participant.puuid}
                 participant={participant}
-                region={riotRegionFromLeague(leagueRegion ?? 'br1')}
                 focused={participant.puuid == focusedParticipantPuuid}
                 onClick={() => setFocusedParticipantPuuid(participant.puuid)}
               />
@@ -142,7 +152,6 @@ export default function MatchInfo() {
             .map((participant) => (
               <MatchParticipantInfo
                 key={participant.puuid}
-                region={riotRegionFromLeague(leagueRegion ?? 'br1')}
                 participant={participant}
                 focused={participant.puuid == focusedParticipantPuuid}
                 onClick={() => setFocusedParticipantPuuid(participant.puuid)}
@@ -157,6 +166,8 @@ export default function MatchInfo() {
       />
 
       <Card style={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
+        <Text style={styles.subText}>{matchDateTime}</Text>
+
         <Text style={styles.subText}>Match id: {match.metadata.matchId}</Text>
       </Card>
     </ScrollView>
