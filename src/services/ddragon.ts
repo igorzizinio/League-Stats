@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from 'axios'
-import { DDragonChampionsRaw } from '../@types/riot'
+import { DDragonChampionsRaw, DDragonItemsRaw } from '../@types/riot'
 
 interface CacheKey<T> {
   gotAt: number
@@ -23,6 +23,10 @@ class DDragon {
       data: undefined,
     },
     champions: {
+      gotAt: 0,
+      data: undefined,
+    },
+    items: {
       gotAt: 0,
       data: undefined,
     },
@@ -103,6 +107,21 @@ class DDragon {
     return this.#cache.champions.data as DDragonChampionsRaw
   }
 
+  async getOrFetchItems(): Promise<DDragonItemsRaw> {
+    if (!this.#cache.items.data) {
+      const items = await this.fetchItems()
+
+      this.#cache.items = {
+        gotAt: Date.now(),
+        data: items,
+      }
+
+      return items
+    }
+
+    return this.#cache.items.data as DDragonItemsRaw
+  }
+
   async fetchVersions() {
     const res = await this.api.get<string[]>('api/versions.json')
     return res.data
@@ -113,6 +132,13 @@ class DDragon {
     const res = await this.api.get(
       `/cdn/${version}/data/${locale}/champion.json`,
     )
+
+    return res.data.data
+  }
+
+  async fetchItems(locale: string = 'en_US') {
+    const [version] = this.versions
+    const res = await this.api.get(`/cdn/${version}/data/${locale}/item.json`)
 
     return res.data.data
   }

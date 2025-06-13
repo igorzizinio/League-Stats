@@ -10,7 +10,7 @@ export const resources = {
 }
 
 const initI18n = async () => {
-  let savedLanguage = await AsyncStorage.getItem('language')
+  let savedLanguage = await AsyncStorage.getItem('preferences.language')
 
   if (!savedLanguage) {
     savedLanguage = getLocales()[0].languageCode ?? 'en'

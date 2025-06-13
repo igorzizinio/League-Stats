@@ -129,6 +129,15 @@ export class Riot {
     return res.data
   }
 
+  async getMatchTimelineById(matchId: string, riotRegion: RiotRegion) {
+    const res = await this.request<unknown>({
+      url: `/lol/match/v5/matches/${matchId}/timeline`,
+      riotRegion,
+    })
+
+    return res.data
+  }
+
   async request<T = unknown>(
     options: RequestOptions,
   ): Promise<AxiosResponse<T>> {

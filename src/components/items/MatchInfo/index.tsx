@@ -14,8 +14,8 @@ import runes from '../../../runes.json'
 import spells from '../../../spells.json'
 import VictoryDefeatIcon from '../../generic/VictoryDefeatIcon'
 import { useRiot } from '../../../hooks/useRiot'
-import { getLocales } from 'expo-localization'
 import { expoToDateFnsLocale } from '../../../functions/expoToDateFnsLocale'
+import { usePreferences } from '../../../hooks/usePreferences'
 
 type Props = {
   match: Match
@@ -27,6 +27,7 @@ const MatchInfoCard: React.FC<Props> = ({ match, onClick }) => {
   const { riot } = useRiot()
   const { summoner } = useSummoner()
 
+  const { language } = usePreferences()
   const { t } = useTranslation()
 
   const me = match.info.participants.find((p) => p.puuid == summoner?.puuid)!
@@ -59,7 +60,7 @@ const MatchInfoCard: React.FC<Props> = ({ match, onClick }) => {
 
   const timeAgo = formatDistanceToNow(new Date(match.info.gameCreation), {
     addSuffix: true,
-    locale: expoToDateFnsLocale(getLocales()[0].languageTag),
+    locale: expoToDateFnsLocale(language),
   })
 
   return (

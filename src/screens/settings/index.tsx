@@ -6,14 +6,15 @@ import colors from '../../colors'
 import { useState } from 'react'
 import { usePreferences } from '../../hooks/usePreferences'
 
-import i18n, { resources } from '../../i18n'
+import { resources } from '../../i18n'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { languageNames } from '../../resources/strings'
 import themes from '../../themes'
 import { useTranslation } from 'react-i18next'
 
 export default function Settings() {
-  const { primaryColor, setPrimaryColor, setRiotApiKey } = usePreferences()
+  const { primaryColor, setPrimaryColor, setRiotApiKey, setLanguage } =
+    usePreferences()
   const { t } = useTranslation()
 
   const [colorsOpen, setColorsOpen] = useState(false)
@@ -46,8 +47,7 @@ export default function Settings() {
   }
 
   const onSelectLanguage = (value: string) => {
-    AsyncStorage.setItem('language', value)
-    i18n.changeLanguage(value)
+    setLanguage(value)
   }
 
   const changeRiotApiKey = () => {

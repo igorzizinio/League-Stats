@@ -2,11 +2,20 @@
 
 League Stats is a mobile application about League of Legends
 
+
+## Features:
+
+ - Weekly champions
+ - Match history
+ - Profile page (level, ranking and mastery)
+ - Coach by AI
+
+
 ## Requirements
 
 - A riot application at <https://developer.riotgames.com> (or use a development api key)
-- [Node.js](https://nodejs.org) (>= 18 recommended)
-- [Expo](https://expo.dev/) (>= 51)
+- [Node.js](https://nodejs.org) (23 recommended)
+- [Expo](https://expo.dev/) (>= 53)
 - Yarn (recommended)
 
 ## Running yourself
@@ -27,8 +36,9 @@ $ yarn install
 $ yarn start
 ```
 
-- Create a .env file at the root of the application with the following contents:
+- Create a .env file at the root of the application with the following contents (note: currently League Stats store your keys in plain text, so be aware!):
 
 ```text
-RIOT_API_KEY= <Place here your riot api key>
+EXPO_PUBLIC_RIOT_API_KEY= <Place here your riot api key>
+EXPO_PUBLIC_OPENROUTER_API_KEY = <Place here your openrouter api key>
 ```

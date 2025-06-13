@@ -1,7 +1,13 @@
 import { RouteProp, useRoute } from '@react-navigation/native'
 import React, { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { ScrollView, StyleSheet, Text, View } from 'react-native'
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native'
 import { Match, MatchParticipant } from '../@types/riot'
 import colors from '../colors'
 import ParticipantFocusDetails from '../components/cards/ParticipantFocusDetail'
@@ -15,6 +21,10 @@ import { HistoryStackParamList } from '../routes/history.routes'
 import { expoToDateFnsLocale } from '../functions/expoToDateFnsLocale'
 import { getLocales } from 'expo-localization'
 import { format } from 'date-fns'
+import Title from '../components/ui/title'
+import Markdown from 'react-native-markdown-display'
+import { usePreferences } from '../hooks/usePreferences'
+import { useAiCoach } from '../hooks/useAiCoach'
 
 type matchInfoScreenProp = RouteProp<HistoryStackParamList, 'matchInfo'>
 
@@ -22,11 +32,17 @@ export default function MatchInfo() {
   const route = useRoute<matchInfoScreenProp>()
 
   const { riot } = useRiot()
+  const { aiCoach } = useAiCoach()
+  const { language } = usePreferences()
   const { summoner, leagueRegion } = useSummoner()
 
   const [match, setMatch] = useState<Match>()
+  const [timeline, setTimeline] = useState<unknown>() // TODO: type this properly
   const [focusedParticipantPuuid, setFocusedParticipantPuuid] =
     useState<string>(summoner?.puuid ?? '')
+
+  const [aiCoachText, setAiCoachText] = useState<string>('')
+  const [loading, setLoading] = useState<boolean>(false)
 
   const { t } = useTranslation()
 
@@ -37,7 +53,33 @@ export default function MatchInfo() {
       .then((match) => {
         setMatch(match)
       })
+
+    riot
+      .getMatchTimelineById(
+        route.params?.matchId,
+        riotRegionFromLeague(leagueRegion),
+      )
+      .then((timeline) => {
+        setTimeline(timeline)
+      })
   }, [])
+
+  const analyzeMatch = async () => {
+    if (!match || !timeline || !summoner?.puuid || loading) return
+
+    console.log('Analyzing match...')
+    setLoading(true)
+
+    aiCoach
+      .analyzeMatch(summoner.puuid, language, match, timeline)
+      .then((res) => {
+        console.log('AI Coach response:', res)
+        setAiCoachText(res.choices?.[0]?.message?.content ?? '')
+      })
+      .finally(() => {
+        setLoading(false)
+      })
+  }
 
   const focusedParticipant =
     match?.info.participants.find((p) => p.puuid === focusedParticipantPuuid) ??
@@ -165,6 +207,32 @@ export default function MatchInfo() {
         match={match}
       />
 
+      <Card
+        style={{
+          width: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 12,
+        }}
+      >
+        <Title>🤖 Coach AI</Title>
+
+        <TouchableOpacity
+          style={styles.button}
+          onPress={analyzeMatch}
+        >
+          <Text style={styles.text}>Analyze</Text>
+        </TouchableOpacity>
+
+        <Card>
+          <Markdown style={mdStyles}>
+            {loading
+              ? 'Please wait, we are analyzing your match...'
+              : aiCoachText ?? 'Your analysis will appear here.'}
+          </Markdown>
+        </Card>
+      </Card>
+
       <Card style={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
         <Text style={styles.subText}>{matchDateTime}</Text>
 
@@ -209,5 +277,23 @@ const styles = StyleSheet.create({
   subText: {
     fontSize: 14,
     color: '#ffffff80',
+  },
+  button: {
+    backgroundColor: '#ffffff05',
+    padding: 12,
+    borderRadius: 8,
+  },
+})
+
+const mdStyles = StyleSheet.create({
+  text: {
+    color: '#ffffff80',
+  },
+  list_item: {
+    color: '#ffffff80',
+  },
+  hr: {
+    backgroundColor: '#ffffff20',
+    marginVertical: 8,
   },
 })

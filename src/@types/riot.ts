@@ -37,6 +37,17 @@ export interface ChampionData {
   }
 }
 
+export interface DDragonItemsRaw {
+  [key: string]: ItemData
+}
+
+export interface ItemData {
+  id: string
+  key: string
+  name: string
+  description: string
+}
+
 // League of Legends
 
 export const LeagueRegions = {
@@ -148,6 +159,7 @@ export interface MatchParticipant {
   role: string
   teamId: number
   teamPosition: TeamPosition
+  participantId: number
 
   // kda
   assists: number
