@@ -2,9 +2,6 @@
   "cli": {
     "version": ">= 2.2.1"
   },
-  "ios": {
-    "bundleIdentifier": "com.igorzizinio.leaguestats"
-  },
   "build": {
     "development": {
       "developmentClient": true,
