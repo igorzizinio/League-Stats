@@ -1,4 +1,3 @@
-import { useMemo } from 'react'
 import { LeagueStats } from '../services/league-stats'
 import { usePreferences } from './usePreferences'
 
@@ -8,15 +7,22 @@ declare const process: {
   }
 }
 
+let instance: LeagueStats | null = null
+let lastUrl: string | null = null
+
+export function getLeagueStats(apiUrl: string): LeagueStats {
+  if (!instance || lastUrl !== apiUrl) {
+    instance = new LeagueStats(apiUrl)
+    lastUrl = apiUrl
+  }
+  return instance
+}
+
 const useLeagueStats = () => {
   const { apiUrl } = usePreferences()
-
-  const leaguestats = useMemo(
-    () =>
-      new LeagueStats(apiUrl ?? process.env.EXPO_PUBLIC_LEAGUE_STATS_API_URL),
-    [apiUrl],
+  const leaguestats = getLeagueStats(
+    apiUrl ?? process.env.EXPO_PUBLIC_LEAGUE_STATS_API_URL!,
   )
-
   return { leaguestats }
 }
 
