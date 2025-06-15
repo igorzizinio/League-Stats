@@ -8,14 +8,13 @@ import { getLocales } from 'expo-localization'
 import { ChampionData } from '../../../@types/riot'
 import Card from '../../ui/card'
 import { Mastery } from '../../generic/Mastery'
-import { useRiot } from '../../../hooks/useRiot'
+import ddragon from '../../../services/ddragon'
 
 type Props = {
   mastery: ChampionMastery
 }
 
 const ChampionMasteryCard: React.FC<Props> = ({ mastery }) => {
-  const { riot } = useRiot()
   const [champion, setChampion] = useState<ChampionData>({} as ChampionData)
   const [locale] = getLocales()
 
@@ -24,7 +23,7 @@ const ChampionMasteryCard: React.FC<Props> = ({ mastery }) => {
   }, [])
 
   const findChampion = async () => {
-    const champions = await riot.ddragon.getOrFetchChampions()
+    const champions = await ddragon.getOrFetchChampions()
     const values = Object.values(champions)
     setChampion(
       values.find(
@@ -39,7 +38,7 @@ const ChampionMasteryCard: React.FC<Props> = ({ mastery }) => {
         <Image
           style={styles.championIcon}
           source={{
-            uri: riot.ddragon.getChampionIcon(champion.id),
+            uri: ddragon.getChampionIcon(champion.id),
           }}
         />
 

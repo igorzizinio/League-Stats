@@ -9,7 +9,7 @@ import colors from '../../../colors'
 import runes from '../../../runes.json'
 import spells from '../../../spells.json'
 import cdragon from '../../../services/cdragon'
-import { useRiot } from '../../../hooks/useRiot'
+import ddragon from '../../../services/ddragon'
 
 type Props = {
   participant: MatchParticipant
@@ -28,8 +28,6 @@ const MatchParticipantInfo: React.FC<Props> = ({
   onClick,
   focused = false,
 }) => {
-  const { riot } = useRiot()
-
   const primaryMainRune = participant.perks.styles[0].selections[0].perk
   const runeIconPath =
     runes.find((rune) => rune.id == primaryMainRune)?.icon.toLowerCase() ?? ''
@@ -75,7 +73,7 @@ const MatchParticipantInfo: React.FC<Props> = ({
               marginRight: 12,
             }}
             source={{
-              uri: riot.ddragon.getChampionIcon(nameFiltered),
+              uri: ddragon.getChampionIcon(nameFiltered),
             }}
           />
 

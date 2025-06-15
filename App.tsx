@@ -9,22 +9,21 @@ import { Routes } from './src/routes'
 import './src/i18n'
 import themes from './src/themes'
 import { PreferencesProvider } from './src/hooks/usePreferences'
-import { useRiot } from './src/hooks/useRiot'
+import ddragon from './src/services/ddragon'
 
 SplashScreen.preventAutoHideAsync()
 
 export default function App() {
-  const { riot } = useRiot()
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     setupCache()
-  }, [riot])
+  }, [])
 
   // Load static data from ddragon and set on cache
   async function setupCache() {
-    await riot.ddragon.getOrFetchVersions()
-    await riot.ddragon.getOrFetchChampions()
+    await ddragon.getOrFetchVersions()
+    await ddragon.getOrFetchChampions()
 
     setLoading(false)
   }

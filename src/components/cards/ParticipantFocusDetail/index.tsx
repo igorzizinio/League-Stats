@@ -12,7 +12,7 @@ import ParticipantItems from '../../items/ParticipantItems'
 import Card from '../../ui/card'
 import styles from './styles'
 import Title from '../../ui/title'
-import { useRiot } from '../../../hooks/useRiot'
+import ddragon from '../../../services/ddragon'
 
 type Props = {
   participant: MatchParticipant
@@ -23,7 +23,6 @@ const ParticipantFocusDetails: React.FC<Props> = ({ participant, match }) => {
   const [championsData, setChampionsData] = useState<DDragonChampionsRaw>({})
   const champion = championsData[participant.championName] ?? {}
 
-  const { riot } = useRiot()
   const { t } = useTranslation()
 
   useEffect(() => {
@@ -31,7 +30,7 @@ const ParticipantFocusDetails: React.FC<Props> = ({ participant, match }) => {
   }, [])
 
   async function getChampionsData() {
-    const data = await riot.ddragon.getOrFetchChampions()
+    const data = await ddragon.getOrFetchChampions()
     setChampionsData(data)
   }
 
@@ -46,7 +45,7 @@ const ParticipantFocusDetails: React.FC<Props> = ({ participant, match }) => {
         <Image
           style={{ width: 72, height: 72 }}
           source={{
-            uri: riot.ddragon.getChampionIcon(champion.id),
+            uri: ddragon.getChampionIcon(champion.id),
           }}
         />
 

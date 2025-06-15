@@ -1,15 +1,13 @@
 import React from 'react'
 import { Image, StyleSheet } from 'react-native'
-import { useRiot } from '../../../hooks/useRiot'
+import ddragon from '../../../services/ddragon'
 
 type Props = {
   iconId?: number
 }
 
 const SummonerIcon: React.FC<Props> = ({ iconId = 0 }) => {
-  const { riot } = useRiot()
-
-  const uri = riot.ddragon.getIcon(iconId)
+  const uri = ddragon.getIcon(iconId)
 
   return (
     <Image

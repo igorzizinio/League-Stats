@@ -1,14 +1,13 @@
 import React from 'react'
 import { Image, StyleSheet, View } from 'react-native'
 import colors from '../../../colors'
-import { useRiot } from '../../../hooks/useRiot'
+import ddragon from '../../../services/ddragon'
 
 type Props = {
   items: { item: number; slot: number }[]
 }
 
 const ParticipantItems: React.FC<Props> = ({ items }) => {
-  const { riot } = useRiot()
   return (
     <View style={styles.container}>
       {items.map((item) => (
@@ -16,7 +15,7 @@ const ParticipantItems: React.FC<Props> = ({ items }) => {
           key={item.slot}
           style={styles.image}
           source={{
-            uri: riot.ddragon.getCDN(`img/item/${item.item}.png`),
+            uri: ddragon.getCDN(`img/item/${item.item}.png`),
           }}
         />
       ))}
