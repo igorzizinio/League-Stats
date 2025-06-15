@@ -9,6 +9,8 @@ import ChampionMastery from '../entities/ChampionMastery'
 import Summoner from '../entities/Summoner'
 
 export class LeagueStats {
+  private matchCache = new Map<string, Match>()
+
   constructor(private readonly apiUrl: string) {}
 
   async getSummonerByRiotId(
@@ -123,6 +125,20 @@ export class LeagueStats {
   }
 
   async getMatchById(riotRegion: RiotRegion, matchId: string): Promise<Match> {
+    const data = this.matchCache.get(matchId)
+    if (!data) {
+      const match = await this.fetchMatchById(riotRegion, matchId)
+      this.matchCache.set(matchId, match)
+      return match
+    } else {
+      return data
+    }
+  }
+
+  async fetchMatchById(
+    riotRegion: RiotRegion,
+    matchId: string,
+  ): Promise<Match> {
     const res = await fetch(`${this.apiUrl}/match/${riotRegion}/${matchId}`)
 
     if (!res.ok) {
