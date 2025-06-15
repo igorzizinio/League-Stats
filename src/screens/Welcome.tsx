@@ -11,7 +11,6 @@ import {
 import { MaterialIcons } from '@expo/vector-icons'
 import { leagueFromString } from '../@types/riot'
 import { SelectMenu } from '../components/generic/SelectMenu'
-import riotRegionFromLeague from '../functions/riotRegionFromLeague'
 import { SummonerInfo, useSummoner } from '../hooks/useSummoner'
 import themes from '../themes'
 import { useTranslation } from 'react-i18next'
@@ -20,7 +19,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { WelcomeStackParamList } from '../routes/welcome.routes'
 import { useNavigation } from '@react-navigation/native'
 import { usePreferences } from '../hooks/usePreferences'
-import { useRiot } from '../hooks/useRiot'
+import { useLeagueStats } from '../hooks/useLeagueStats'
 
 type welcomeScreenProp = NativeStackNavigationProp<
   WelcomeStackParamList,
@@ -30,7 +29,7 @@ type welcomeScreenProp = NativeStackNavigationProp<
 export default function Welcome() {
   const { primaryColor } = usePreferences()
 
-  const { riot } = useRiot()
+  const { leaguestats } = useLeagueStats()
   const { savedSummoners, addSummoner, getSummoner } = useSummoner()
 
   const navigation = useNavigation<welcomeScreenProp>()
@@ -57,15 +56,10 @@ export default function Welcome() {
       }
 
       const leagueRegion = leagueFromString(typingRegion.toUpperCase())
-      const riotAccount = await riot.getAccountByRiotId(
+
+      const { account, summoner } = await leaguestats.getSummonerByRiotId(
         riotId.tag,
         riotId.name,
-        riotRegionFromLeague(leagueRegion),
-      )
-
-      const summoner = await riot.getSummonerByPuuId(
-        riotAccount.puuid,
-        leagueRegion,
       )
 
       ToastAndroid.show(
@@ -77,7 +71,7 @@ export default function Welcome() {
       addSummoner(
         leagueRegion,
         summoner.puuid,
-        `${riotAccount.gameName}#${riotAccount.tagLine}`,
+        `${account.gameName}#${account.tagLine}`,
       )
     } catch (e) {
       alert(

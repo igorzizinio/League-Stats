@@ -23,8 +23,8 @@ import { getLocales } from 'expo-localization'
 import { format } from 'date-fns'
 import Title from '../components/ui/title'
 import Markdown from 'react-native-markdown-display'
+import { useLeagueStats } from '../hooks/useLeagueStats'
 import { usePreferences } from '../hooks/usePreferences'
-import { useAiCoach } from '../hooks/useAiCoach'
 
 type matchInfoScreenProp = RouteProp<HistoryStackParamList, 'matchInfo'>
 
@@ -32,12 +32,11 @@ export default function MatchInfo() {
   const route = useRoute<matchInfoScreenProp>()
 
   const { riot } = useRiot()
-  const { aiCoach } = useAiCoach()
+  const { leaguestats } = useLeagueStats()
   const { language } = usePreferences()
   const { summoner, leagueRegion } = useSummoner()
 
   const [match, setMatch] = useState<Match>()
-  const [timeline, setTimeline] = useState<unknown>() // TODO: type this properly
   const [focusedParticipantPuuid, setFocusedParticipantPuuid] =
     useState<string>(summoner?.puuid ?? '')
 
@@ -53,32 +52,26 @@ export default function MatchInfo() {
       .then((match) => {
         setMatch(match)
       })
-
-    riot
-      .getMatchTimelineById(
-        route.params?.matchId,
-        riotRegionFromLeague(leagueRegion),
-      )
-      .then((timeline) => {
-        setTimeline(timeline)
-      })
   }, [])
 
   const analyzeMatch = async () => {
-    if (!match || !timeline || !summoner?.puuid || loading) return
+    if (!match || !summoner?.puuid || loading || !leagueRegion) return
 
     console.log('Analyzing match...')
     setLoading(true)
 
-    aiCoach
-      .analyzeMatch(summoner.puuid, language, match, timeline)
-      .then((res) => {
-        console.log('AI Coach response:', res)
-        setAiCoachText(res.choices?.[0]?.message?.content ?? '')
-      })
-      .finally(() => {
-        setLoading(false)
-      })
+    const res = await leaguestats.analyzeMatch(
+      riotRegionFromLeague(leagueRegion),
+      match?.metadata.matchId ?? '',
+      summoner.puuid,
+      language,
+    )
+
+    console.log('AI Coach response:', res)
+
+    setAiCoachText(res.content)
+
+    setLoading(false)
   }
 
   const focusedParticipant =
