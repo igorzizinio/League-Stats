@@ -5,11 +5,11 @@ import i18n from '../i18n'
 
 interface PreferencesContextType {
   primaryColor: string
-  riotApiKey: string | undefined
+  apiUrl: string | undefined
   language: string
   setLanguage: (language: string) => void
   setPrimaryColor: (color: string) => void
-  setRiotApiKey: (apiKey: string | undefined) => void
+  setApiUrl: (apiUrl: string | undefined) => void
 }
 
 const PreferencesContext = createContext<PreferencesContextType>(
@@ -24,8 +24,8 @@ export const PreferencesProvider: React.FC<{ children: ReactNode }> = ({
     colors.softPurple,
   )
 
-  const [riotApiKey, setRiotApiKey] = usePersistedState<string | undefined>(
-    'preferences.riotApiKey',
+  const [apiUrl, setApiUrl] = usePersistedState<string | undefined>(
+    'preferences.apiUrl',
     undefined,
   )
 
@@ -42,10 +42,10 @@ export const PreferencesProvider: React.FC<{ children: ReactNode }> = ({
     <PreferencesContext.Provider
       value={{
         primaryColor,
-        riotApiKey,
+        apiUrl,
         language,
         setPrimaryColor,
-        setRiotApiKey,
+        setApiUrl,
         setLanguage,
       }}
     >

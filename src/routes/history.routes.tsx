@@ -1,9 +1,9 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import React from 'react'
 import { View } from 'react-native'
-import History from '../screens/History'
+import History from '../screens/history'
 import themes from '../themes'
-import MatchInfo from '../screens/MatchInfo'
+import MatchInfo from '../screens/match-info'
 
 export type HistoryStackParamList = {
   historyDefault: undefined

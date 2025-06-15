@@ -1,29 +1,23 @@
 import { RouteProp, useRoute } from '@react-navigation/native'
 import React, { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native'
-import { Match, MatchParticipant } from '../@types/riot'
-import colors from '../colors'
-import ParticipantFocusDetails from '../components/cards/ParticipantFocusDetail'
-import MatchParticipantInfo from '../components/items/MatchParticipantInfo'
-import Card from '../components/ui/card'
-import riotRegionFromLeague from '../functions/riotRegionFromLeague'
-import { useSummoner } from '../hooks/useSummoner'
-import themes from '../themes'
-import { HistoryStackParamList } from '../routes/history.routes'
-import { expoToDateFnsLocale } from '../functions/expoToDateFnsLocale'
+import { ScrollView, Text, TouchableOpacity, View } from 'react-native'
+import { Match, MatchParticipant } from '../../@types/riot'
+import ParticipantFocusDetails from '../../components/cards/ParticipantFocusDetail'
+import MatchParticipantInfo from '../../components/items/MatchParticipantInfo'
+import Card from '../../components/ui/card'
+import riotRegionFromLeague from '../../functions/riotRegionFromLeague'
+import { useSummoner } from '../../hooks/useSummoner'
+import { HistoryStackParamList } from '../../routes/history.routes'
+import { expoToDateFnsLocale } from '../../functions/expoToDateFnsLocale'
 import { getLocales } from 'expo-localization'
 import { format } from 'date-fns'
-import Title from '../components/ui/title'
+import Title from '../../components/ui/title'
 import Markdown from 'react-native-markdown-display'
-import { useLeagueStats } from '../hooks/useLeagueStats'
-import { usePreferences } from '../hooks/usePreferences'
+import { useLeagueStats } from '../../hooks/useLeagueStats'
+import { usePreferences } from '../../hooks/usePreferences'
+import { styles, mdStyles } from './styles'
+import colors from '../../colors'
 
 type matchInfoScreenProp = RouteProp<HistoryStackParamList, 'matchInfo'>
 
@@ -231,59 +225,3 @@ export default function MatchInfo() {
     </ScrollView>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: themes.dark.background,
-    padding: 8,
-  },
-  header: {
-    width: '100%',
-    flexDirection: 'row',
-    gap: 6,
-    alignItems: 'center',
-    justifyContent: 'space-around',
-  },
-  heading: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 4,
-  },
-  teamsContainer: {
-    flexDirection: 'row',
-    gap: 4,
-  },
-  team: {
-    flex: 1,
-    gap: 4,
-  },
-  text: {
-    fontSize: 16,
-    color: colors.white,
-    fontWeight: 'bold',
-  },
-  subText: {
-    fontSize: 14,
-    color: '#ffffff80',
-  },
-  button: {
-    backgroundColor: '#ffffff05',
-    padding: 12,
-    borderRadius: 8,
-  },
-})
-
-const mdStyles = StyleSheet.create({
-  text: {
-    color: '#ffffff80',
-  },
-  list_item: {
-    color: '#ffffff80',
-  },
-  hr: {
-    backgroundColor: '#ffffff20',
-    marginVertical: 8,
-  },
-})

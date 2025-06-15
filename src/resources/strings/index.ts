@@ -21,8 +21,8 @@ export interface StringResources {
     }
     settings: {
       title: string
-      customRiotApiKey: string
-      customRiotApiKeyPlaceholder: string
+      customApiUrl: string
+      customApiUrlPlaceholder: string
       deleteData: string
       appColor: string
       language: string

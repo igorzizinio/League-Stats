@@ -13,14 +13,14 @@ import themes from '../../themes'
 import { useTranslation } from 'react-i18next'
 
 export default function Settings() {
-  const { primaryColor, setPrimaryColor, setRiotApiKey, setLanguage } =
+  const { primaryColor, setPrimaryColor, setApiUrl, setLanguage } =
     usePreferences()
   const { t } = useTranslation()
 
   const [colorsOpen, setColorsOpen] = useState(false)
   const [languagesOpen, setLanguagesOpen] = useState(false)
 
-  const [riotApiKey, setCustomRiotApiKey] = useState('')
+  const [customApiUrl, setCustomApiUrl] = useState('')
 
   const items = [
     { name: 'Blue', value: colors.softBlue },
@@ -50,12 +50,12 @@ export default function Settings() {
     setLanguage(value)
   }
 
-  const changeRiotApiKey = () => {
-    setRiotApiKey(riotApiKey)
+  const changeApiUrl = () => {
+    setApiUrl(customApiUrl)
   }
 
-  const resetRiotApiKey = () => {
-    setRiotApiKey(undefined)
+  const resetApiUrl = () => {
+    setApiUrl(undefined)
   }
 
   const handleOnPressDelete = async () => {
@@ -67,13 +67,13 @@ export default function Settings() {
     <View style={styles.container}>
       <View style={styles.inputContainer}>
         <Text style={styles.title}>
-          ⚠️ {t('screen.settings.customRiotApiKey')}:{' '}
+          ⚠️ {t('screen.settings.customApiUrl')}:{' '}
         </Text>
         <TextInput
-          placeholder={t('screen.settings.customRiotApiKeyPlaceholder')}
+          placeholder={t('screen.settings.customApiUrlPlaceholder')}
           placeholderTextColor='#ffffff80'
           style={styles.input}
-          onChangeText={(text) => setCustomRiotApiKey(text)}
+          onChangeText={(text) => setCustomApiUrl(text)}
         />
 
         <View
@@ -90,7 +90,7 @@ export default function Settings() {
               styles.button,
               { backgroundColor: colors.softRed, width: '25%' },
             ]}
-            onPress={resetRiotApiKey}
+            onPress={resetApiUrl}
           >
             <Text style={styles.text}>Reset</Text>
           </TouchableOpacity>
@@ -100,7 +100,7 @@ export default function Settings() {
               styles.button,
               { backgroundColor: primaryColor, flexGrow: 1 },
             ]}
-            onPress={changeRiotApiKey}
+            onPress={changeApiUrl}
           >
             <Text style={styles.text}>{t('common.confirm')}</Text>
           </TouchableOpacity>

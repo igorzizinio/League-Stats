@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { ScrollView, StyleSheet, Text, View } from 'react-native'
-import colors from '../colors'
-import ChampionMasteryCard from '../components/items/ChampionMastery'
-import ChampionMastery from '../entities/ChampionMastery'
-import { useSummoner } from '../hooks/useSummoner'
-import themes from '../themes'
-import { useLeagueStats } from '../hooks/useLeagueStats'
+import { ScrollView, Text, View } from 'react-native'
+import ChampionMasteryCard from '../../components/items/ChampionMastery'
+import ChampionMastery from '../../entities/ChampionMastery'
+import { useSummoner } from '../..//hooks/useSummoner'
+import { useLeagueStats } from '../../hooks/useLeagueStats'
+import { styles } from './styles'
 
 export default function BestChampions() {
   const { t } = useTranslation()
@@ -48,24 +47,3 @@ export default function BestChampions() {
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: themes.dark.background,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 8,
-  },
-  title: {
-    color: colors.white,
-    alignSelf: 'flex-start',
-    fontSize: 22,
-    paddingVertical: 12,
-    paddingHorizontal: 18,
-    fontWeight: 'bold',
-  },
-  maestries: {
-    width: '100%',
-  },
-})

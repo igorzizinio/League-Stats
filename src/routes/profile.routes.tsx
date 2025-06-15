@@ -3,8 +3,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { View } from 'react-native'
 import themes from '../themes'
 
-import Profile from '../screens/Profile'
-import BestChampions from '../screens/BestChampions'
+import Profile from '../screens/profile'
+import BestChampions from '../screens/best-champions'
 
 const Stack = createNativeStackNavigator()
 

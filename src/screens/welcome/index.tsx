@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import {
   ScrollView,
-  StyleSheet,
   Text,
   TextInput,
   ToastAndroid,
@@ -9,17 +8,19 @@ import {
   View,
 } from 'react-native'
 import { MaterialIcons } from '@expo/vector-icons'
-import { leagueFromString } from '../@types/riot'
-import { SelectMenu } from '../components/generic/SelectMenu'
-import { SummonerInfo, useSummoner } from '../hooks/useSummoner'
-import themes from '../themes'
+import { leagueFromString } from '../../@types/riot'
+import { SelectMenu } from '../../components/generic/SelectMenu'
+import { SummonerInfo, useSummoner } from '../../hooks/useSummoner'
+import themes from '../../themes'
 import { useTranslation } from 'react-i18next'
-import getRiotIdFromString from '../functions/ritoIdFromString'
+import getRiotIdFromString from '../../functions/ritoIdFromString'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
-import { WelcomeStackParamList } from '../routes/welcome.routes'
+import { WelcomeStackParamList } from '../../routes/welcome.routes'
 import { useNavigation } from '@react-navigation/native'
-import { usePreferences } from '../hooks/usePreferences'
-import { useLeagueStats } from '../hooks/useLeagueStats'
+import { usePreferences } from '../../hooks/usePreferences'
+import { useLeagueStats } from '../../hooks/useLeagueStats'
+
+import { styles } from './styles'
 
 type welcomeScreenProp = NativeStackNavigationProp<
   WelcomeStackParamList,
@@ -59,9 +60,13 @@ export default function Welcome() {
 
       const { account, summoner } = await leaguestats.getSummonerByRiotId(
         leagueRegion,
-        riotId.tag,
         riotId.name,
+        riotId.tag,
       )
+
+      if (!account || !summoner) {
+        return
+      }
 
       ToastAndroid.show(
         `Found summoner with name ${summoner.name}!`,
@@ -202,53 +207,3 @@ export default function Welcome() {
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: themes.dark.background,
-    alignItems: 'center',
-    justifyContent: 'space-evenly',
-  },
-  title: {
-    color: '#fff',
-    fontWeight: 'bold',
-    fontSize: 32,
-  },
-  subTitle: {
-    color: '#ffffff60',
-    fontWeight: 'bold',
-    textAlign: 'center',
-    fontSize: 20,
-  },
-  text: {
-    color: '#fff',
-    fontWeight: 'bold',
-    fontSize: 20,
-  },
-  inputsContainer: {
-    backgroundColor: '#ffffff10',
-    flexDirection: 'row',
-    borderTopLeftRadius: 12,
-    borderTopRightRadius: 12,
-    borderBottomLeftRadius: 0,
-    borderBottomRightRadius: 0,
-    borderColor: '#ffffff50',
-    borderBottomWidth: 1,
-    width: '75%',
-  },
-  textInput: {
-    color: '#ffffff90',
-    padding: 12,
-    fontSize: 18,
-    width: '75%',
-  },
-  button: {
-    backgroundColor: '#ffffff10',
-    paddingHorizontal: 32,
-    paddingVertical: 12,
-    borderRadius: 12,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-})

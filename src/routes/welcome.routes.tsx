@@ -1,11 +1,10 @@
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import Welcome from '../screens/Welcome'
+import Welcome from '../screens/welcome'
 import Settings from '../screens/settings'
 import colors from '../colors'
 import themes from '../themes'
 import { useTranslation } from 'react-i18next'
-//import SettingsScreen from '../screens/settings'
 
 export type WelcomeStackParamList = {
   welcome: undefined

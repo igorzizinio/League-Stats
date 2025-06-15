@@ -23,8 +23,8 @@ export const en: StringResources = {
     },
     settings: {
       title: 'Settings',
-      customRiotApiKey: 'Custom Riot Api Key',
-      customRiotApiKeyPlaceholder: 'Enter your custom Riot Api Key here',
+      customApiUrl: 'Custom API Url',
+      customApiUrlPlaceholder: 'Enter your custom API url here.',
       appColor: 'App color',
       language: 'Language',
       deleteData: 'Delete all data',
