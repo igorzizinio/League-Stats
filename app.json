@@ -15,7 +15,8 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.igorzizinio.leaguestats"
     },
     "android": {
       "adaptiveIcon": {
@@ -30,6 +31,16 @@
         "projectId": "f045a167-a0c2-4fa8-b3d5-92888ff774c3"
       }
     },
-    "plugins": ["expo-localization"]
+    "plugins": [
+      "expo-localization",
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "usesCleartextTraffic": true
+          }
+        }
+      ]
+    ]
   }
 }
