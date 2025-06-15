@@ -22,7 +22,8 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#121212"
       },
-      "package": "com.igorzizinio.leaguestats"
+      "package": "com.igorzizinio.leaguestats",
+      "usesCleartextTraffic": true
     },
     "extra": {
       "eas": {
