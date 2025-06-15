@@ -2,6 +2,7 @@ import React, { createContext, useContext, ReactNode, useEffect } from 'react'
 import colors from '../colors'
 import usePersistedState from './usePersistedState'
 import i18n from '../i18n'
+import { getLocales } from 'expo-localization'
 
 interface PreferencesContextType {
   primaryColor: string
@@ -31,7 +32,7 @@ export const PreferencesProvider: React.FC<{ children: ReactNode }> = ({
 
   const [language, setLanguage] = usePersistedState(
     'preferences.language',
-    'en',
+    getLocales()[0].languageCode ?? 'en',
   )
 
   useEffect(() => {
