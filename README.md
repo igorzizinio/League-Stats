@@ -40,5 +40,4 @@ $ yarn start
 
 ```text
 EXPO_PUBLIC_RIOT_API_KEY= <Place here your riot api key>
-EXPO_PUBLIC_OPENROUTER_API_KEY = <Place here your openrouter api key>
 ```

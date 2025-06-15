@@ -12,7 +12,7 @@ const useRiot = () => {
   const { riotApiKey } = usePreferences()
 
   const riot = useMemo(
-    () => new Riot(riotApiKey ?? process.env.EXPO_PUBLIC_RIOT_API_KEY),
+    () => new Riot(riotApiKey ?? process.env.EXPO_PUBLIC_RIOT_API_KEY ?? ''),
     [riotApiKey],
   )
 

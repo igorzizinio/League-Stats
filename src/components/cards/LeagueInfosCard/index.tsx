@@ -6,10 +6,10 @@ import { useSummoner } from '../../../hooks/useSummoner'
 import LeagueInfo from '../../items/LeagueInfo'
 import Card from '../../ui/card'
 import Title from '../../ui/title'
-import { useRiot } from '../../../hooks/useRiot'
+import { useLeagueStats } from '../../../hooks/useLeagueStats'
 
 const LeagueInfosCard: React.FC = () => {
-  const { riot } = useRiot()
+  const { leaguestats } = useLeagueStats()
   const { leagueRegion, summoner } = useSummoner()
   const { t } = useTranslation()
 
@@ -17,9 +17,12 @@ const LeagueInfosCard: React.FC = () => {
 
   useEffect(() => {
     if (!leagueRegion || !summoner) return
-    riot.getSummonerLeague(summoner?.id, leagueRegion).then((leagues) => {
-      setLeagues(leagues.filter((l) => l.queueType != 'CHERRY'))
-    })
+
+    leaguestats
+      .getSummonerLeague(leagueRegion, summoner.puuid)
+      .then((leagues) => {
+        setLeagues(leagues.filter((l) => l.queueType != 'CHERRY'))
+      })
   }, [])
 
   if (!leagues?.length) return <></>

@@ -21,7 +21,7 @@ export default function History() {
   const { summoner, leagueRegion } = useSummoner()
   const { matches, loading, loadMatches } = useSummonerMatches(
     summoner,
-    riotRegionFromLeague(leagueRegion ?? LeagueRegions.BR1),
+    riotRegionFromLeague(leagueRegion ?? LeagueRegions.NA1),
   )
 
   const { primaryColor } = usePreferences()

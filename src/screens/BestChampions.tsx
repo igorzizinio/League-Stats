@@ -6,28 +6,28 @@ import ChampionMasteryCard from '../components/items/ChampionMastery'
 import ChampionMastery from '../entities/ChampionMastery'
 import { useSummoner } from '../hooks/useSummoner'
 import themes from '../themes'
-import { useRiot } from '../hooks/useRiot'
+import { useLeagueStats } from '../hooks/useLeagueStats'
 
 export default function BestChampions() {
   const { t } = useTranslation()
 
-  const { riot } = useRiot()
+  const { leaguestats } = useLeagueStats()
   const { summoner, leagueRegion } = useSummoner()
 
-  const [maestries, setMaestries] = useState<ChampionMastery[]>([])
+  const [masteries, setMasteries] = useState<ChampionMastery[]>([])
 
   useEffect(() => {
     if (!leagueRegion || !summoner) return
 
-    riot
-      .getSummonerChampionsMasteries(summoner?.puuid, leagueRegion)
-      .then((maestries) => {
-        if (!maestries) return
-        setMaestries(
-          maestries.sort((x, y) => y.championLevel - x.championLevel),
+    leaguestats
+      .getSummonerChampionsMasteries(leagueRegion, summoner.puuid)
+      .then((masteries) => {
+        if (!masteries) return
+
+        setMasteries(
+          masteries.sort((x, y) => y.championLevel - x.championLevel),
         )
       })
-      .catch(console.error)
   }, [])
 
   return (
@@ -38,7 +38,7 @@ export default function BestChampions() {
         style={styles.maestries}
         contentContainerStyle={{ gap: 8 }}
       >
-        {maestries.map((mastery) => (
+        {masteries.map((mastery) => (
           <ChampionMasteryCard
             key={mastery.championId}
             mastery={mastery}

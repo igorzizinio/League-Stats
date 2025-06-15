@@ -58,6 +58,7 @@ export default function Welcome() {
       const leagueRegion = leagueFromString(typingRegion.toUpperCase())
 
       const { account, summoner } = await leaguestats.getSummonerByRiotId(
+        leagueRegion,
         riotId.tag,
         riotId.name,
       )

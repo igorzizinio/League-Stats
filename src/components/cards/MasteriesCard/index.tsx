@@ -10,7 +10,7 @@ import { ProfileStackParamList } from '../../../screens/Profile'
 import ChampionMasteryCard from '../../items/ChampionMastery'
 import Card from '../../ui/card'
 import Title from '../../ui/title'
-import { useRiot } from '../../../hooks/useRiot'
+import { useLeagueStats } from '../../../hooks/useLeagueStats'
 
 type profileScreenProp = NativeStackNavigationProp<
   ProfileStackParamList,
@@ -20,7 +20,7 @@ type profileScreenProp = NativeStackNavigationProp<
 const MasteriesCard: React.FC = () => {
   const navigation = useNavigation<profileScreenProp>()
 
-  const { riot } = useRiot()
+  const { leaguestats } = useLeagueStats()
   const { leagueRegion, summoner } = useSummoner()
 
   const [masteries, setMasteries] = useState<ChampionMastery[]>([])
@@ -29,8 +29,9 @@ const MasteriesCard: React.FC = () => {
 
   useEffect(() => {
     if (!leagueRegion || !summoner) return
-    riot
-      .getSummonerChampionsMasteries(summoner?.puuid, leagueRegion)
+
+    leaguestats
+      .getSummonerChampionsMasteries(leagueRegion, summoner.puuid)
       .then((masteries) => {
         if (!masteries) return
         setMasteries(

@@ -2,10 +2,9 @@ import { AxiosError } from 'axios'
 import React, { ReactNode, createContext, useContext, useState } from 'react'
 import { Account, LeagueRegion } from '../@types/riot'
 import Summoner from '../entities/Summoner'
-import riotRegionFromLeague from '../functions/riotRegionFromLeague'
 
 import usePersistedState from './usePersistedState'
-import { useRiot } from './useRiot'
+import { useLeagueStats } from './useLeagueStats'
 
 export type SummonerInfo = {
   puuid: string
@@ -37,7 +36,7 @@ type SummonerProviderProps = {
 export const SummonerContext = createContext({} as SummonerContextData)
 
 function SummonerProvider({ children }: SummonerProviderProps) {
-  const { riot } = useRiot()
+  const { leaguestats } = useLeagueStats()
   const [summoner, setSummoner] = useState<Summoner>()
   const [riotAccount, setRiotAccount] = useState<Account>()
 
@@ -52,15 +51,21 @@ function SummonerProvider({ children }: SummonerProviderProps) {
 
   async function getSummoner(leagueRegion: LeagueRegion, puuid: string) {
     try {
-      const res = await riot.getSummonerByPuuId(puuid, leagueRegion)
-      const account = await riot.getAccountByPuuid(
+      console.log(
+        `[SummonerContext] Fetching summoner with PUUID: ${puuid} in ${leagueRegion}`,
+      )
+      const { account, summoner } = await leaguestats.getSummonerByPuuid(
+        leagueRegion,
         puuid,
-        riotRegionFromLeague(leagueRegion),
+      )
+
+      console.log(
+        `[SummonerContext] Summoner found: ${summoner.name} (${puuid}) in ${leagueRegion}`,
       )
 
       setPuuid(puuid)
       setLeagueRegion(leagueRegion)
-      setSummoner(res)
+      setSummoner(summoner)
       setRiotAccount(account)
 
       console.log('[SummonerContext] Summoner updated successfully')

@@ -16,7 +16,6 @@ import Card from '../components/ui/card'
 import riotRegionFromLeague from '../functions/riotRegionFromLeague'
 import { useSummoner } from '../hooks/useSummoner'
 import themes from '../themes'
-import { useRiot } from '../hooks/useRiot'
 import { HistoryStackParamList } from '../routes/history.routes'
 import { expoToDateFnsLocale } from '../functions/expoToDateFnsLocale'
 import { getLocales } from 'expo-localization'
@@ -31,7 +30,6 @@ type matchInfoScreenProp = RouteProp<HistoryStackParamList, 'matchInfo'>
 export default function MatchInfo() {
   const route = useRoute<matchInfoScreenProp>()
 
-  const { riot } = useRiot()
   const { leaguestats } = useLeagueStats()
   const { language } = usePreferences()
   const { summoner, leagueRegion } = useSummoner()
@@ -47,11 +45,10 @@ export default function MatchInfo() {
 
   useEffect(() => {
     if (!leagueRegion || !summoner) return
-    riot
-      .getMatchById(route.params?.matchId, riotRegionFromLeague(leagueRegion))
-      .then((match) => {
-        setMatch(match)
-      })
+
+    leaguestats
+      .getMatchById(riotRegionFromLeague(leagueRegion), route.params?.matchId)
+      .then((match) => setMatch(match))
   }, [])
 
   const analyzeMatch = async () => {
