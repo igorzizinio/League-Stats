@@ -336,8 +336,8 @@
   },
   {
     "id": 8230,
-    "name": "Phase Rush",
-    "icon": "perk-images/Styles/Sorcery/PhaseRush/PhaseRush.png"
+    "name": "Stormraider's Surge",
+    "icon": "perk-images/Styles/Sorcery/PhaseRush/StormraidersSurgeRuneIcon2.png"
   },
   {
     "id": 8318,
@@ -393,6 +393,11 @@
     "id": 8306,
     "name": "Hextech Flashtraption",
     "icon": "perk-images/Styles/Inspiration/HextechFlashtraption/HextechFlashtraption.png"
+  },
+  {
+    "id": 8992,
+    "name": "Deathfire Touch",
+    "icon": "perk-images/Styles/Sorcery/DeathfireTouch/DEATHFIRE_TOUCH_KEYSTONE.png"
   },
   {
     "id": 8465,
