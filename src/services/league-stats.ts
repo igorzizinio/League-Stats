@@ -11,7 +11,7 @@ import Summoner from '../entities/Summoner'
 export class LeagueStats {
   private matchCache = new Map<string, Match>()
 
-  constructor(private readonly apiUrl: string) {}
+  constructor(private readonly apiUrl: string) { }
 
   async getSummonerByRiotId(
     region: LeagueRegion,
@@ -160,7 +160,7 @@ export class LeagueStats {
 
     const data = await res.json()
 
-    return data.freeChampionIds as string[]
+    return data.sr as string[]
   }
 
   async analyzeMatch(
