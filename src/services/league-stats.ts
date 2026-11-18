@@ -11,7 +11,7 @@ import Summoner from '../entities/Summoner'
 export class LeagueStats {
   private matchCache = new Map<string, Match>()
 
-  constructor(private readonly apiUrl: string) { }
+  constructor(private readonly apiUrl: string) {}
 
   async getSummonerByRiotId(
     region: LeagueRegion,

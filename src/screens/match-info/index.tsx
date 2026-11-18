@@ -10,7 +10,7 @@ import {
   View,
 } from 'react-native'
 import Markdown from 'react-native-markdown-display'
-import type { Match, MatchParticipant } from '../../@types/riot'
+import type { Match } from '../../@types/riot'
 import colors from '../../colors'
 import ParticipantFocusDetails from '../../components/cards/ParticipantFocusDetail'
 import { TeamKDA } from '../../components/generic/TeamKDA'
@@ -24,6 +24,7 @@ import { usePreferences } from '../../hooks/usePreferences'
 import { useSummoner } from '../../hooks/useSummoner'
 import type { HistoryStackParamList } from '../../routes/history.routes'
 import { mdStyles, styles } from './styles'
+import { RuneStatisticsCard } from '../../components/cards/RuneStatisticsCard'
 
 type matchInfoScreenProp = RouteProp<HistoryStackParamList, 'matchInfo'>
 
@@ -88,9 +89,9 @@ export default function MatchInfo() {
     )
   }
 
-  const focusedParticipant =
-    match?.info.participants.find((p) => p.puuid === focusedParticipantPuuid) ??
-    ({} as MatchParticipant)
+  const focusedParticipant = match?.info.participants.find(
+    (p) => p.puuid === focusedParticipantPuuid,
+  )
 
   const team1Won = match?.info.teams[0].win ?? true
 
@@ -167,10 +168,15 @@ export default function MatchInfo() {
         </View>
       </View>
 
-      <ParticipantFocusDetails
-        participant={focusedParticipant}
-        match={match}
-      />
+      {focusedParticipant && (
+        <>
+          <ParticipantFocusDetails
+            participant={focusedParticipant}
+            match={match}
+          />
+          <RuneStatisticsCard participant={focusedParticipant} />
+        </>
+      )}
 
       <Card
         style={{

@@ -50,6 +50,12 @@ export interface StringResources {
     bestChampions: {
       title: string
     }
+    runeStatistics: {
+      title: string
+      primary: string
+      secondary: string
+      shards: string
+    }
   }
   league: {
     championRotation: string

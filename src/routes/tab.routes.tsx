@@ -1,3 +1,4 @@
+import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { MaterialIcons } from '@react-native-vector-icons/material-icons'
 import { useTranslation } from 'react-i18next'

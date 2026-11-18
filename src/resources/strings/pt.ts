@@ -53,6 +53,12 @@ export const pt_BR: StringResources = {
     bestChampions: {
       title: 'Melhores campeões',
     },
+    runeStatistics: {
+      title: 'Estatísticas de runas',
+      primary: 'Primária',
+      secondary: 'Secundária',
+      shards: 'Fragmentos de atributos',
+    },
   },
   league: {
     championRotation: 'Rotação de campeões',

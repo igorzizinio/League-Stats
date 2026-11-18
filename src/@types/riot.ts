@@ -222,8 +222,10 @@ export interface PerkStyle {
 }
 
 export interface PerkStyleSelection {
-  perk: number
-  var1: number
+  perk: number // id da runa
+  var1: number // dano causado / n de ativações / segundos restituidos
+
+  // ainda não sei para que serve
   var2: number
   var3: number
 }

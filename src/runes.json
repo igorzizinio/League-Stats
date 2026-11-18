@@ -2,516 +2,783 @@
   {
     "id": 8369,
     "name": "First Strike",
-    "icon": "perk-images/Styles/Inspiration/FirstStrike/FirstStrike.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Inspiration/FirstStrike/FirstStrike.png",
+    "endOfGameStatDescs": [
+      "Damage Dealt: @eogvar1@",
+      "Gold Gained: @eogvar2@"
+    ]
   },
   {
     "id": 8446,
     "name": "Demolish",
-    "icon": "perk-images/Styles/Resolve/Demolish/Demolish.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Resolve/Demolish/Demolish.png",
+    "endOfGameStatDescs": [
+      "Total Bonus Damage: @eogvar1@"
+    ]
   },
   {
     "id": 8126,
     "name": "Cheap Shot",
-    "icon": "perk-images/Styles/Domination/CheapShot/CheapShot.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Domination/CheapShot/CheapShot.png",
+    "endOfGameStatDescs": [
+      "Total damage: @eogvar1@"
+    ]
   },
   {
     "id": 8415,
     "name": "The Arcane Colossus",
-    "icon": "perk-images/Styles/RunesIcon.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/RunesIcon.png",
+    "endOfGameStatDescs": []
   },
   {
     "id": 8410,
     "name": "Approach Velocity",
-    "icon": "perk-images/Styles/Resolve/ApproachVelocity/ApproachVelocity.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Resolve/ApproachVelocity/ApproachVelocity.png",
+    "endOfGameStatDescs": [
+      "Time Spent Hasted: @eogvar1@"
+    ]
   },
   {
     "id": 8232,
     "name": "Waterwalking",
-    "icon": "perk-images/Styles/Sorcery/Waterwalking/Waterwalking.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Sorcery/Waterwalking/Waterwalking.png",
+    "endOfGameStatDescs": [
+      "Total time active: @eogvar1@:@eogvar2@"
+    ]
   },
   {
     "id": 8299,
     "name": "Last Stand",
-    "icon": "perk-images/Styles/Sorcery/LastStand/LastStand.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Sorcery/LastStand/LastStand.png",
+    "endOfGameStatDescs": [
+      "Total Bonus Damage: @eogvar1@"
+    ]
   },
   {
     "id": 8112,
     "name": "Electrocute",
-    "icon": "perk-images/Styles/Domination/Electrocute/Electrocute.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Domination/Electrocute/Electrocute.png",
+    "endOfGameStatDescs": [
+      "Total Damage Dealt: @eogvar1@"
+    ]
   },
   {
     "id": 8234,
     "name": "Celerity",
-    "icon": "perk-images/Styles/Sorcery/Celerity/CelerityTemp.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Sorcery/Celerity/CelerityTemp.png",
+    "endOfGameStatDescs": [
+      "Extra Distance Travelled: @eogvar1@"
+    ]
   },
   {
     "id": 8453,
     "name": "Revitalize",
-    "icon": "perk-images/Styles/Resolve/Revitalize/Revitalize.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Resolve/Revitalize/Revitalize.png",
+    "endOfGameStatDescs": [
+      "Bonus Healing: @eogvar1@",
+      "Bonus Shielding: @eogvar2@"
+    ]
   },
   {
     "id": 8360,
     "name": "Unsealed Spellbook",
-    "icon": "perk-images/Styles/Inspiration/UnsealedSpellbook/UnsealedSpellbook.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Inspiration/UnsealedSpellbook/UnsealedSpellbook.png",
+    "endOfGameStatDescs": [
+      "Summoner Spells swapped: @eogvar1@"
+    ]
   },
   {
     "id": 8004,
     "name": "The Brazen Perfect",
-    "icon": "perk-images/Styles/RunesIcon.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/RunesIcon.png",
+    "endOfGameStatDescs": []
   },
   {
     "id": 8128,
     "name": "Dark Harvest",
-    "icon": "perk-images/Styles/Domination/DarkHarvest/DarkHarvest.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Domination/DarkHarvest/DarkHarvest.png",
+    "endOfGameStatDescs": [
+      "Total Damage Dealt: @eogvar1@",
+      "Total Souls Harvested: @eogvar2@"
+    ]
   },
   {
     "id": 8220,
     "name": "The Calamity",
-    "icon": "perk-images/Styles/RunesIcon.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/RunesIcon.png",
+    "endOfGameStatDescs": []
   },
   {
     "id": 8016,
     "name": "The Merciless Elite",
-    "icon": "perk-images/Styles/RunesIcon.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/RunesIcon.png",
+    "endOfGameStatDescs": []
   },
   {
     "id": 8473,
     "name": "Bone Plating",
-    "icon": "perk-images/Styles/Resolve/BonePlating/BonePlating.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Resolve/BonePlating/BonePlating.png",
+    "endOfGameStatDescs": [
+      "Total Damage Blocked: @eogvar1@"
+    ]
   },
   {
     "id": 8339,
     "name": "Celestial Body",
-    "icon": "perk-images/Styles/Inspiration/CelestialBody/CelestialBody.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Inspiration/CelestialBody/CelestialBody.png",
+    "endOfGameStatDescs": [
+      "--"
+    ]
   },
   {
     "id": 8214,
     "name": "Summon Aery",
-    "icon": "perk-images/Styles/Sorcery/SummonAery/SummonAery.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Sorcery/SummonAery/SummonAery.png",
+    "endOfGameStatDescs": [
+      "Damage Dealt: @eogvar1@",
+      "Damage Shielded: @eogvar2@"
+    ]
   },
   {
     "id": 8141,
     "name": "Deep Ward",
-    "icon": "perk-images/Styles/Domination/DeepWard/DeepWard.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Domination/DeepWard/DeepWard.png",
+    "endOfGameStatDescs": [
+      "Deep Wards: @eogvar1@"
+    ]
   },
   {
     "id": 8237,
     "name": "Scorch",
-    "icon": "perk-images/Styles/Sorcery/Scorch/Scorch.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Sorcery/Scorch/Scorch.png",
+    "endOfGameStatDescs": [
+      "Total Bonus Damage: @eogvar1@"
+    ]
   },
   {
     "id": 8139,
     "name": "Taste of Blood",
-    "icon": "perk-images/Styles/Domination/TasteOfBlood/GreenTerror_TasteOfBlood.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Domination/TasteOfBlood/GreenTerror_TasteOfBlood.png",
+    "endOfGameStatDescs": [
+      "Total Healing: @eogvar1@"
+    ]
   },
   {
     "id": 9101,
     "name": "Absorb Life",
-    "icon": "perk-images/Styles/Precision/AbsorbLife/AbsorbLife.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Precision/AbsorbLife/AbsorbLife.png",
+    "endOfGameStatDescs": [
+      "Total Healing: @eogvar1@"
+    ]
   },
   {
     "id": 8008,
     "name": "Lethal Tempo",
-    "icon": "perk-images/Styles/Precision/LethalTempo/LethalTempoTemp.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Precision/LethalTempo/LethalTempoTemp.png",
+    "endOfGameStatDescs": [
+      "Max Attack Speed Uptime: @eogvar1@:@eogvar2@<br>Damage Dealt: @eogvar2@"
+    ]
   },
   {
     "id": 8010,
     "name": "Conqueror",
-    "icon": "perk-images/Styles/Precision/Conqueror/Conqueror.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Precision/Conqueror/Conqueror.png",
+    "endOfGameStatDescs": [
+      "Total healing: @eogvar1@"
+    ]
   },
   {
     "id": 9105,
     "name": "Legend: Haste",
-    "icon": "perk-images/Styles/Precision/LegendHaste/LegendHaste.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Precision/LegendHaste/LegendHaste.png",
+    "endOfGameStatDescs": [
+      "Time Completed: @eogvar1@:@eogvar2@"
+    ]
   },
   {
     "id": 8106,
     "name": "Ultimate Hunter",
-    "icon": "perk-images/Styles/Domination/UltimateHunter/UltimateHunter.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Domination/UltimateHunter/UltimateHunter.png",
+    "endOfGameStatDescs": [
+      "Total Stacks: @eogvar1@",
+      "Ultimate Haste: @eogvar2@"
+    ]
   },
   {
     "id": 8017,
     "name": "Cut Down",
-    "icon": "perk-images/Styles/Precision/CutDown/CutDown.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Precision/CutDown/CutDown.png",
+    "endOfGameStatDescs": [
+      "Total Bonus Damage: @eogvar1@"
+    ]
   },
   {
     "id": 8224,
     "name": "Axiom Arcanist",
-    "icon": "perk-images/Styles/Sorcery/NullifyingOrb/Axiom_Arcanist.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Sorcery/NullifyingOrb/Axiom_Arcanist.png",
+    "endOfGameStatDescs": [
+      "Ultimate Cooldown Reduced: @eogvar1@ Seconds",
+      "Bonus Ultimate Damage/Healing/Shielding To Champions: @eogvar2@"
+    ]
   },
   {
     "id": 8210,
     "name": "Transcendence",
-    "icon": "perk-images/Styles/Sorcery/Transcendence/Transcendence.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Sorcery/Transcendence/Transcendence.png",
+    "endOfGameStatDescs": [
+      "Seconds refunded: @eogvar1@"
+    ]
   },
   {
     "id": 8005,
     "name": "Press the Attack",
-    "icon": "perk-images/Styles/Precision/PressTheAttack/PressTheAttack.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Precision/PressTheAttack/PressTheAttack.png",
+    "endOfGameStatDescs": [
+      "Total Damage: @eogvar1@",
+      "Bonus Damage: @eogvar2@"
+    ]
   },
   {
     "id": 8435,
     "name": "Mirror Shell",
-    "icon": "perk-images/Styles/Resolve/MirrorShell/MirrorShell.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Resolve/MirrorShell/MirrorShell.png",
+    "endOfGameStatDescs": [
+      "Bonus Magic Resist: @eogvar1@"
+    ]
   },
   {
     "id": 8115,
     "name": "The Aether Blade",
-    "icon": "perk-images/Styles/RunesIcon.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/RunesIcon.png",
+    "endOfGameStatDescs": []
   },
   {
     "id": 8137,
     "name": "Sixth Sense",
-    "icon": "perk-images/Styles/Domination/SixthSense/SixthSense.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Domination/SixthSense/SixthSense.png",
+    "endOfGameStatDescs": [
+      "Wards sensed: @eogvar1@"
+    ]
   },
   {
     "id": 8359,
     "name": "Kleptomancy",
-    "icon": "perk-images/Styles/Inspiration/Kleptomancy/Kleptomancy.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Inspiration/Kleptomancy/Kleptomancy.png",
+    "endOfGameStatDescs": [
+      "Gold Granted: @eogvar1@",
+      "Items Looted: @eogvar2@"
+    ]
   },
   {
     "id": 8352,
     "name": "Time Warp Tonic",
-    "icon": "perk-images/Styles/Inspiration/TimeWarpTonic/TimeWarpTonic.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Inspiration/TimeWarpTonic/TimeWarpTonic.png",
+    "endOfGameStatDescs": [
+      "Instant health restored: @eogvar2@"
+    ]
   },
   {
     "id": 5003,
     "name": "Magic Resist",
-    "icon": "perk-images/StatMods/StatModsMagicResIcon.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/StatMods/StatModsMagicResIcon.png",
+    "endOfGameStatDescs": []
   },
   {
     "id": 8135,
     "name": "Treasure Hunter",
-    "icon": "perk-images/Styles/Domination/TreasureHunter/TreasureHunter.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Domination/TreasureHunter/TreasureHunter.png",
+    "endOfGameStatDescs": [
+      "Total Stacks: @eogvar2@",
+      "Gold Collected: @eogvar1@"
+    ]
   },
   {
     "id": 8120,
     "name": "Ghost Poro",
-    "icon": "perk-images/Styles/Domination/GhostPoro/GhostPoro.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Domination/GhostPoro/GhostPoro.png",
+    "endOfGameStatDescs": [
+      "Ghost Poros Spawned: @eogvar3@",
+      "Enemies Spotted: @eogvar1@"
+    ]
   },
   {
     "id": 8134,
     "name": "Ingenious Hunter",
-    "icon": "perk-images/Styles/Domination/IngeniousHunter/IngeniousHunter.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Domination/IngeniousHunter/IngeniousHunter.png",
+    "endOfGameStatDescs": [
+      "Total Stacks: @eogvar2@",
+      "Total Item Activations (Including Trinkets): @eogvar1@"
+    ]
   },
   {
     "id": 8351,
     "name": "Glacial Augment",
-    "icon": "perk-images/Styles/Inspiration/GlacialAugment/GlacialAugment.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Inspiration/GlacialAugment/GlacialAugment.png",
+    "endOfGameStatDescs": [
+      "Duration Enemy Champs Slowed: @eogvar1@s",
+      "Damage Reduced: @eogvar2@"
+    ]
   },
   {
     "id": 8242,
     "name": "Unflinching",
-    "icon": "perk-images/Styles/Sorcery/Unflinching/Unflinching.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Sorcery/Unflinching/Unflinching.png",
+    "endOfGameStatDescs": [
+      "Seconds in combat with bonus resistances: @eogvar1@"
+    ]
   },
   {
     "id": 8401,
     "name": "Shield Bash",
-    "icon": "perk-images/Styles/Resolve/MirrorShell/MirrorShell.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Resolve/MirrorShell/MirrorShell.png",
+    "endOfGameStatDescs": [
+      "Total Damage: @eogvar1@"
+    ]
   },
   {
     "id": 9111,
     "name": "Triumph",
-    "icon": "perk-images/Styles/Precision/Triumph.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Precision/Triumph.png",
+    "endOfGameStatDescs": [
+      "Total Health Restored: @eogvar1@",
+      "Total bonus gold granted: @eogvar2@"
+    ]
   },
   {
     "id": 8105,
     "name": "Relentless Hunter",
-    "icon": "perk-images/Styles/Domination/RelentlessHunter/RelentlessHunter.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Domination/RelentlessHunter/RelentlessHunter.png",
+    "endOfGameStatDescs": [
+      "Total Stacks: @eogvar2@",
+      "Move Speed Increase: <speed>@eogvar1@</speed>"
+    ]
   },
   {
     "id": 8454,
     "name": "The Leviathan",
-    "icon": "perk-images/Styles/RunesIcon.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/RunesIcon.png",
+    "endOfGameStatDescs": []
   },
   {
     "id": 8275,
     "name": "Nimbus Cloak",
-    "icon": "perk-images/Styles/Sorcery/NimbusCloak/6361.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Sorcery/NimbusCloak/6361.png",
+    "endOfGameStatDescs": [
+      "Times activated: @eogvar1@"
+    ]
   },
   {
     "id": 8207,
     "name": "The Cryptic",
-    "icon": "perk-images/Styles/RunesIcon.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/RunesIcon.png",
+    "endOfGameStatDescs": []
   },
   {
     "id": 5012,
     "name": "Resist Scaling",
-    "icon": "perk-images/StatMods/StatModsAdaptiveForceScalingIcon.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/StatMods/StatModsAdaptiveForceScalingIcon.png",
+    "endOfGameStatDescs": []
   },
   {
     "id": 8439,
     "name": "Aftershock",
-    "icon": "perk-images/Styles/Resolve/VeteranAftershock/VeteranAftershock.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Resolve/VeteranAftershock/VeteranAftershock.png",
+    "endOfGameStatDescs": [
+      "Total Damage Dealt: @eogvar1@",
+      "Total Damage Mitigated: @eogvar2@"
+    ]
   },
   {
     "id": 8109,
     "name": "The Wicked Maestro ",
-    "icon": "perk-images/Styles/RunesIcon.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/RunesIcon.png",
+    "endOfGameStatDescs": []
   },
   {
     "id": 5002,
     "name": "Armor",
-    "icon": "perk-images/StatMods/StatModsArmorIcon.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/StatMods/StatModsArmorIcon.png",
+    "endOfGameStatDescs": []
   },
   {
     "id": 5011,
     "name": "Health",
-    "icon": "perk-images/StatMods/StatModsHealthScalingIcon.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/StatMods/StatModsHealthScalingIcon.png",
+    "endOfGameStatDescs": []
   },
   {
     "id": 5013,
     "name": "Tenacity and Slow Resist",
-    "icon": "perk-images/StatMods/StatModsTenacityIcon.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/StatMods/StatModsTenacityIcon.png",
+    "endOfGameStatDescs": []
   },
   {
     "id": 8414,
     "name": "The Behemoth",
-    "icon": "perk-images/Styles/RunesIcon.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/RunesIcon.png",
+    "endOfGameStatDescs": []
   },
   {
     "id": 5008,
     "name": "Adaptive Force",
-    "icon": "perk-images/StatMods/StatModsAdaptiveForceIcon.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/StatMods/StatModsAdaptiveForceIcon.png",
+    "endOfGameStatDescs": []
   },
   {
     "id": 8320,
     "name": "The Timeless",
-    "icon": "perk-images/Styles/RunesIcon.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/RunesIcon.png",
+    "endOfGameStatDescs": []
   },
   {
     "id": 8319,
     "name": "The Stargazer",
-    "icon": "perk-images/Styles/RunesIcon.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/RunesIcon.png",
+    "endOfGameStatDescs": []
   },
   {
     "id": 5001,
     "name": "Health Scaling",
-    "icon": "perk-images/StatMods/StatModsHealthPlusIcon.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/StatMods/StatModsHealthPlusIcon.png",
+    "endOfGameStatDescs": []
   },
   {
     "id": 8430,
     "name": "Iron Skin",
-    "icon": "perk-images/Styles/Resolve/IronSkin/IronSkin.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Resolve/IronSkin/IronSkin.png",
+    "endOfGameStatDescs": [
+      "Percent of game active: @eogvar1@%"
+    ]
   },
   {
     "id": 8014,
     "name": "Coup de Grace",
-    "icon": "perk-images/Styles/Precision/CoupDeGrace/CoupDeGrace.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Precision/CoupDeGrace/CoupDeGrace.png",
+    "endOfGameStatDescs": [
+      "Total Bonus Damage: @eogvar1@"
+    ]
   },
   {
     "id": 5007,
     "name": "Ability Haste",
-    "icon": "perk-images/StatMods/StatModsCDRScalingIcon.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/StatMods/StatModsCDRScalingIcon.png",
+    "endOfGameStatDescs": []
   },
   {
     "id": 8021,
     "name": "Fleet Footwork",
-    "icon": "perk-images/Styles/Precision/FleetFootwork/FleetFootwork.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Precision/FleetFootwork/FleetFootwork.png",
+    "endOfGameStatDescs": [
+      "Total Healing: @eogvar1@"
+    ]
   },
   {
     "id": 8226,
     "name": "Manaflow Band",
-    "icon": "perk-images/Styles/Sorcery/ManaflowBand/ManaflowBand.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Sorcery/ManaflowBand/ManaflowBand.png",
+    "endOfGameStatDescs": [
+      "Total bonus mana: @eogvar1@",
+      "Total mana restored: @eogvar2@"
+    ]
   },
   {
     "id": 8451,
     "name": "Overgrowth",
-    "icon": "perk-images/Styles/Resolve/Overgrowth/Overgrowth.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Resolve/Overgrowth/Overgrowth.png",
+    "endOfGameStatDescs": [
+      "Total Bonus Max Health: @eogvar1@"
+    ]
   },
   {
     "id": 8313,
     "name": "Triple Tonic",
-    "icon": "perk-images/Styles/Inspiration/PerfectTiming/AlchemistCabinet.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Inspiration/PerfectTiming/AlchemistCabinet.png",
+    "endOfGameStatDescs": [
+      "Items Gained: @eogvar1@"
+    ]
   },
   {
     "id": 9103,
     "name": "Legend: Bloodline",
-    "icon": "perk-images/Styles/Precision/LegendBloodline/LegendBloodline.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Precision/LegendBloodline/LegendBloodline.png",
+    "endOfGameStatDescs": [
+      "Time Completed: @eogvar1@:@eogvar2@"
+    ]
   },
   {
     "id": 8114,
     "name": "The Immortal Butcher",
-    "icon": "perk-images/Styles/RunesIcon.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/RunesIcon.png",
+    "endOfGameStatDescs": []
   },
   {
     "id": 8230,
     "name": "Stormraider's Surge",
-    "icon": "perk-images/Styles/Sorcery/PhaseRush/StormraidersSurgeRuneIcon2.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Sorcery/PhaseRush/StormraidersSurgeRuneIcon2.png",
+    "endOfGameStatDescs": [
+      "Total activations: @eogvar1@"
+    ]
   },
   {
     "id": 8318,
     "name": "The Ruthless Visionary",
-    "icon": "perk-images/Styles/RunesIcon.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/RunesIcon.png",
+    "endOfGameStatDescs": []
   },
   {
     "id": 8463,
     "name": "Font of Life",
-    "icon": "perk-images/Styles/Resolve/FontOfLife/FontOfLife.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Resolve/FontOfLife/FontOfLife.png",
+    "endOfGameStatDescs": [
+      "Total Ally Healing: @eogvar1@"
+    ]
   },
   {
     "id": 7000,
     "name": "Template",
-    "icon": "perk-images/Template/7000.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Template/7000.png",
+    "endOfGameStatDescs": []
   },
   {
     "id": 8304,
     "name": "Magical Footwear",
-    "icon": "perk-images/Styles/Inspiration/MagicalFootwear/MagicalFootwear.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Inspiration/MagicalFootwear/MagicalFootwear.png",
+    "endOfGameStatDescs": [
+      "Boots Arrival Time: @eogvar1@:@eogvar2@@eogvar3@"
+    ]
   },
   {
     "id": 8236,
     "name": "Gathering Storm",
-    "icon": "perk-images/Styles/Sorcery/GatheringStorm/GatheringStorm.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Sorcery/GatheringStorm/GatheringStorm.png",
+    "endOfGameStatDescs": [
+      "Total Bonus AD/AP: @eogvar1@"
+    ]
   },
   {
     "id": 8009,
     "name": "Presence of Mind",
-    "icon": "perk-images/Styles/Precision/PresenceOfMind/PresenceOfMind.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Precision/PresenceOfMind/PresenceOfMind.png",
+    "endOfGameStatDescs": [
+      "Resource Restored: @eogvar1@"
+    ]
   },
   {
     "id": 8006,
     "name": "The Eternal Champion",
-    "icon": "perk-images/Styles/RunesIcon.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/RunesIcon.png",
+    "endOfGameStatDescs": []
   },
   {
     "id": 9104,
     "name": "Legend: Alacrity",
-    "icon": "perk-images/Styles/Precision/LegendAlacrity/LegendAlacrity.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Precision/LegendAlacrity/LegendAlacrity.png",
+    "endOfGameStatDescs": [
+      "Time Completed: @eogvar1@:@eogvar2@"
+    ]
   },
   {
     "id": 8416,
     "name": "The Enlightened Titan",
-    "icon": "perk-images/Styles/RunesIcon.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/RunesIcon.png",
+    "endOfGameStatDescs": []
   },
   {
     "id": 5005,
     "name": "Attack Speed",
-    "icon": "perk-images/StatMods/StatModsAttackSpeedIcon.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/StatMods/StatModsAttackSpeedIcon.png",
+    "endOfGameStatDescs": []
   },
   {
     "id": 8306,
     "name": "Hextech Flashtraption",
-    "icon": "perk-images/Styles/Inspiration/HextechFlashtraption/HextechFlashtraption.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Inspiration/HextechFlashtraption/HextechFlashtraption.png",
+    "endOfGameStatDescs": [
+      "Times Hexflashed: @eogvar1@"
+    ]
   },
   {
     "id": 8992,
     "name": "Deathfire Touch",
-    "icon": "perk-images/Styles/Sorcery/DeathfireTouch/DEATHFIRE_TOUCH_KEYSTONE.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Sorcery/DeathfireTouch/DEATHFIRE_TOUCH_KEYSTONE.png",
+    "endOfGameStatDescs": [
+      "Burn Damage Dealt: @eogvar1@"
+    ]
   },
   {
     "id": 8465,
     "name": "Guardian",
-    "icon": "perk-images/Styles/Resolve/Guardian/Guardian.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Resolve/Guardian/Guardian.png",
+    "endOfGameStatDescs": [
+      "Total Shield Strength: @eogvar1@"
+    ]
   },
   {
     "id": 8138,
     "name": "Eyeball Collection",
-    "icon": "perk-images/Styles/Domination/EyeballCollection/EyeballCollection.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Domination/EyeballCollection/EyeballCollection.png",
+    "endOfGameStatDescs": [
+      "Total Bonus AD/AP: @eogvar1@"
+    ]
   },
   {
     "id": 5010,
     "name": "Move Speed",
-    "icon": "perk-images/StatMods/StatModsMovementSpeedIcon.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/StatMods/StatModsMovementSpeedIcon.png",
+    "endOfGameStatDescs": []
   },
   {
     "id": 8127,
     "name": "The Twisted Surgeon",
-    "icon": "perk-images/Styles/RunesIcon.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/RunesIcon.png",
+    "endOfGameStatDescs": []
   },
   {
     "id": 8140,
     "name": "Grisly Mementos",
-    "icon": "perk-images/Styles/Domination/GrislyMementos/GrislyMementos.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Domination/GrislyMementos/GrislyMementos.png",
+    "endOfGameStatDescs": [
+      "Mementos Collected: @eogvar1@"
+    ]
   },
   {
     "id": 8143,
     "name": "Sudden Impact",
-    "icon": "perk-images/Styles/Domination/SuddenImpact/SuddenImpact.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Domination/SuddenImpact/SuddenImpact.png",
+    "endOfGameStatDescs": [
+      "Bonus Damage: @eogvar1@"
+    ]
   },
   {
     "id": 8345,
     "name": "Biscuit Delivery",
-    "icon": "perk-images/Styles/Inspiration/BiscuitDelivery/BiscuitDelivery.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Inspiration/BiscuitDelivery/BiscuitDelivery.png",
+    "endOfGameStatDescs": [
+      "Biscuits Received: @eogvar1@",
+      "Total Healing: @eogvar3@"
+    ]
   },
   {
     "id": 8444,
     "name": "Second Wind",
-    "icon": "perk-images/Styles/Resolve/SecondWind/SecondWind.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Resolve/SecondWind/SecondWind.png",
+    "endOfGameStatDescs": [
+      "Total Healing: @eogvar1@"
+    ]
   },
   {
     "id": 8205,
     "name": "The Incontestable Spellslinger",
-    "icon": "perk-images/Styles/RunesIcon.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/RunesIcon.png",
+    "endOfGameStatDescs": []
   },
   {
     "id": 8437,
     "name": "Grasp of the Undying",
-    "icon": "perk-images/Styles/Resolve/GraspOfTheUndying/GraspOfTheUndying.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Resolve/GraspOfTheUndying/GraspOfTheUndying.png",
+    "endOfGameStatDescs": [
+      "Total damage: @eogvar1@",
+      "Total Healing: @eogvar2@"
+    ]
   },
   {
     "id": 9923,
     "name": "Hail of Blades",
-    "icon": "perk-images/Styles/Domination/HailOfBlades/HailOfBlades.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Domination/HailOfBlades/HailOfBlades.png",
+    "endOfGameStatDescs": [
+      "Attacks made with extra Attack Speed: @eogvar1@",
+      "Damage Dealt: @eogvar2@"
+    ]
   },
   {
     "id": 8429,
     "name": "Conditioning",
-    "icon": "perk-images/Styles/Resolve/Conditioning/Conditioning.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Resolve/Conditioning/Conditioning.png",
+    "endOfGameStatDescs": [
+      "Percent of game active: @eogvar1@%",
+      "Total Bonus Armor: @eogvar2@",
+      "Total Bonus Magic Resist: @eogvar3@"
+    ]
   },
   {
     "id": 8124,
     "name": "Predator",
-    "icon": "perk-images/Styles/Domination/Predator/Predator.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Domination/Predator/Predator.png",
+    "endOfGameStatDescs": [
+      "Total Damage to Champions: @eogvar1@"
+    ]
   },
   {
     "id": 8233,
     "name": "Absolute Focus",
-    "icon": "perk-images/Styles/Sorcery/AbsoluteFocus/AbsoluteFocus.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Sorcery/AbsoluteFocus/AbsoluteFocus.png",
+    "endOfGameStatDescs": [
+      "Total time active: @eogvar1@:@eogvar2@"
+    ]
   },
   {
     "id": 8007,
     "name": "The Savant",
-    "icon": "perk-images/Styles/RunesIcon.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/RunesIcon.png",
+    "endOfGameStatDescs": []
   },
   {
     "id": 8136,
     "name": "Zombie Ward",
-    "icon": "perk-images/Styles/Domination/ZombieWard/ZombieWard.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Domination/ZombieWard/ZombieWard.png",
+    "endOfGameStatDescs": [
+      "Wards spawned: @eogvar1@",
+      "Adaptive Force Gained: @eogvar2@"
+    ]
   },
   {
     "id": 8208,
     "name": "The Ancient One",
-    "icon": "perk-images/Styles/RunesIcon.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/RunesIcon.png",
+    "endOfGameStatDescs": []
   },
   {
     "id": 8347,
     "name": "Cosmic Insight",
-    "icon": "perk-images/Styles/Inspiration/CosmicInsight/CosmicInsight.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Inspiration/CosmicInsight/CosmicInsight.png",
+    "endOfGameStatDescs": [
+      "--"
+    ]
   },
   {
     "id": 8472,
     "name": "Chrysalis",
-    "icon": "perk-images/Styles/Resolve/Chrysalis/Chrysalis.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Resolve/Chrysalis/Chrysalis.png",
+    "endOfGameStatDescs": []
   },
   {
     "id": 8316,
     "name": "Jack Of All Trades",
-    "icon": "perk-images/Styles/Inspiration/JackOfAllTrades/JackofAllTrades2.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Inspiration/JackOfAllTrades/JackofAllTrades2.png",
+    "endOfGameStatDescs": [
+      "Bonus stats gained: @eogvar1@ - @eogvar2@"
+    ]
   },
   {
     "id": 8229,
     "name": "Arcane Comet",
-    "icon": "perk-images/Styles/Sorcery/ArcaneComet/ArcaneComet.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Sorcery/ArcaneComet/ArcaneComet.png",
+    "endOfGameStatDescs": [
+      "Total Damage Dealt: @eogvar1@"
+    ]
   },
   {
     "id": 8344,
     "name": "The Elegant Duelist ",
-    "icon": "perk-images/Styles/RunesIcon.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/RunesIcon.png",
+    "endOfGameStatDescs": []
   },
   {
     "id": 8321,
     "name": "Cash Back",
-    "icon": "perk-images/Styles/Inspiration/CashBack/CashBack2.png"
+    "icon": "/lol-game-data/assets/v1/perk-images/Styles/Inspiration/CashBack/CashBack2.png",
+    "endOfGameStatDescs": [
+      "Gold Gained: @eogvar1@"
+    ]
   }
 ]
