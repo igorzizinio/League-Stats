@@ -81,9 +81,7 @@ const MatchParticipantInfo: React.FC<Props> = ({
             <Image
               style={{ width: 16, height: 16, borderBottomLeftRadius: 12 }}
               source={{
-                uri: cdragon.getCDN(
-                  `plugins/rcp-be-lol-game-data/global/default/v1/${runeIconPath}`,
-                ),
+                uri: cdragon.getPerkIconUrl(runeIconPath),
               }}
             />
 

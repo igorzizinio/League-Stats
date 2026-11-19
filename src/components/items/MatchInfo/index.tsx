@@ -16,6 +16,7 @@ import VictoryDefeatIcon from '../../generic/VictoryDefeatIcon'
 import { expoToDateFnsLocale } from '../../../functions/expoToDateFnsLocale'
 import { usePreferences } from '../../../hooks/usePreferences'
 import ddragon from '../../../services/ddragon'
+import cdragon from '../../../services/cdragon'
 
 type Props = {
   match: Match
@@ -95,7 +96,7 @@ const MatchInfoCard: React.FC<Props> = ({ match, onClick }) => {
             <Image
               style={{ width: 24, height: 24, borderBottomLeftRadius: 12 }}
               source={{
-                uri: `https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/${runeIconPath}`,
+                uri: cdragon.getPerkIconUrl(runeIconPath),
               }}
             />
 
